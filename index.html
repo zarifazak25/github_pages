@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GitHub Pages Tutorial - Complete Guide</title>
+    <title>GitHub Pages Tutorial - UNC Chapel Hill MEITE</title>
     <style>
         * {
             margin: 0;
@@ -12,336 +12,336 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Acumin Pro", Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
             line-height: 1.6;
             color: #13294b;
             background-color: #ffffff;
         }
 
-        .header {
-            background: linear-gradient(135deg, #4b9cd3 0%, #13294b 100%);
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-            border-bottom: 4px solid #4b9cd3;
-        }
-
-        .header h1 {
-            font-size: 3em;
-            margin-bottom: 0.3em;
-            font-weight: 700;
-            font-family: Georgia, "Le Monde Livre", serif;
-        }
-
-        .header p {
-            font-size: 1.3em;
-            opacity: 0.95;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            background-color: #ffffff;
-        }
-
-        .intro {
-            background-color: white;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(19, 41, 75, 0.1);
-            margin-bottom: 40px;
-            border-top: 3px solid #4b9cd3;
-        }
-
-        .intro h2 {
-            color: #13294b;
-            margin-bottom: 20px;
-            font-size: 2em;
-            font-family: Georgia, "Le Monde Livre", serif;
-        }
-
-        .intro p {
-            font-size: 1.1em;
-            margin-bottom: 15px;
-            color: #767676;
-        }
-
-        .overview-box {
-            background-color: #f8f9fa;
-            border-left: 4px solid #4b9cd3;
-            padding: 25px;
-            margin: 30px 0;
-            border-radius: 4px;
-        }
-
-        .overview-box h3 {
-            color: #13294b;
-            margin-bottom: 15px;
-            font-size: 1.4em;
-            font-family: Georgia, "Le Monde Livre", serif;
-        }
-
-        .overview-box ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .overview-box li {
-            padding: 8px 0;
-            font-size: 1.05em;
-            color: #767676;
-        }
-
-        .overview-box li strong {
-            color: #13294b;
-        }
-
-        .tutorial-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .tutorial-card {
-            background-color: white;
-            border-radius: 8px;
-            padding: 30px;
-            box-shadow: 0 2px 8px rgba(19, 41, 75, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            text-decoration: none;
-            color: inherit;
-            display: block;
-            border-top: 3px solid #4b9cd3;
-        }
-
-        .tutorial-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 16px rgba(75, 156, 211, 0.25);
-            border-top-color: #007fae;
-        }
-
-        .tutorial-card h3 {
-            color: #007fae;
-            font-size: 1.5em;
-            margin-bottom: 15px;
+        /* Layout */
+        .layout {
             display: flex;
-            align-items: center;
-            font-family: Georgia, "Le Monde Livre", serif;
+            min-height: 100vh;
         }
 
-        .tutorial-card .icon {
-            font-size: 2em;
-            margin-right: 15px;
+        /* Sidebar */
+        .sidebar {
+            width: 260px;
+            background-color: #f8f9fa;
+            border-right: 1px solid #e1e1e1;
+            padding: 30px 20px;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
         }
 
-        .tutorial-card p {
-            color: #767676;
-            font-size: 1.05em;
-            line-height: 1.6;
-        }
-
-        .tutorial-card .topics {
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid #e1e1e1;
-        }
-
-        .tutorial-card .topics h4 {
-            font-size: 0.9em;
+        .sidebar h1 {
+            font-size: 1.5em;
             color: #13294b;
             margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .tutorial-card .topics ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .tutorial-card .topics li {
-            padding: 5px 0;
-            font-size: 0.95em;
-            color: #767676;
-        }
-
-        .tutorial-card .topics li:before {
-            content: "→ ";
-            color: #4b9cd3;
-            font-weight: bold;
-        }
-
-        .footer {
-            text-align: center;
-            padding: 40px 20px;
-            color: #767676;
-            background-color: #f8f9fa;
-            margin-top: 60px;
-            border-top: 3px solid #4b9cd3;
-        }
-
-        .footer p {
-            margin: 10px 0;
-        }
-
-        .meite-note {
-            background-color: #13294b;
-            color: white;
-            padding: 20px;
-            text-align: center;
-            font-size: 0.95em;
-            border-top: 3px solid #4b9cd3;
-        }
-
-        .meite-note a {
-            color: #4b9cd3;
-            text-decoration: none;
             font-weight: 600;
         }
 
-        .meite-note a:hover {
-            color: #fff200;
+        .sidebar .subtitle {
+            font-size: 0.9em;
+            color: #767676;
+            margin-bottom: 30px;
+            line-height: 1.4;
+        }
+
+        .sidebar nav ul {
+            list-style: none;
+        }
+
+        .sidebar nav li {
+            margin-bottom: 5px;
+        }
+
+        .sidebar nav a {
+            display: block;
+            padding: 8px 12px;
+            color: #13294b;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.95em;
+        }
+
+        .sidebar nav a:hover {
+            background-color: #e1e1e1;
+            color: #007fae;
+        }
+
+        .sidebar nav a.active {
+            background-color: #4b9cd3;
+            color: #ffffff;
+        }
+
+        /* Main content */
+        .main-content {
+            margin-left: 260px;
+            flex: 1;
+            padding: 40px 60px;
+            max-width: 1000px;
+        }
+
+        /* Typography */
+        h1 {
+            font-size: 2.5em;
+            color: #13294b;
+            margin-bottom: 20px;
+            font-weight: 600;
+            border-bottom: 3px solid #4b9cd3;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            color: #13294b;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        h3 {
+            font-size: 1.3em;
+            color: #13294b;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: #767676;
+        }
+
+        /* Links */
+        a {
+            color: #007fae;
+            text-decoration: none;
+        }
+
+        a:hover {
             text-decoration: underline;
         }
 
+        /* Lists */
+        ul, ol {
+            margin-left: 25px;
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            color: #767676;
+        }
+
+        /* Info boxes */
+        .info-box {
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-left: 4px solid #4b9cd3;
+            background-color: #f8f9fa;
+        }
+
+        .info-box p {
+            margin: 0;
+        }
+
+        .info-box strong {
+            color: #13294b;
+        }
+
+        /* Tutorial cards */
+        .tutorial-section {
+            margin-bottom: 50px;
+        }
+
+        .tutorial-card {
+            border: 1px solid #e1e1e1;
+            padding: 25px;
+            margin-bottom: 20px;
+            background-color: #ffffff;
+        }
+
+        .tutorial-card h3 {
+            margin-top: 0;
+            color: #4b9cd3;
+        }
+
+        .tutorial-card ul {
+            margin-top: 15px;
+            margin-bottom: 0;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid #e1e1e1;
+            color: #767676;
+            font-size: 0.9em;
+        }
+
+        .meite-footer {
+            background-color: #13294b;
+            color: #ffffff;
+            padding: 25px;
+            margin-top: 40px;
+            margin-left: -60px;
+            margin-right: -60px;
+            margin-bottom: -40px;
+        }
+
+        .meite-footer p {
+            color: #ffffff;
+            margin: 0;
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2em;
+            .sidebar {
+                width: 100%;
+                position: relative;
+                height: auto;
+                border-right: none;
+                border-bottom: 1px solid #e1e1e1;
             }
 
-            .header p {
-                font-size: 1.1em;
+            .main-content {
+                margin-left: 0;
+                padding: 30px 20px;
             }
 
-            .tutorial-grid {
-                grid-template-columns: 1fr;
+            .layout {
+                flex-direction: column;
+            }
+
+            .meite-footer {
+                margin-left: -20px;
+                margin-right: -20px;
+                margin-bottom: -30px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>🚀 GitHub Pages Tutorial</h1>
-        <p>Your Complete Guide to Building and Publishing Your First Website</p>
-    </div>
-
-    <div class="container">
-        <div class="intro">
-            <h2>Welcome to Your Web Development Journey!</h2>
-            <p>This comprehensive tutorial will guide you step-by-step through creating, customizing, and publishing your personal website using GitHub Pages. No prior coding experience required!</p>
+    <div class="layout">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <h1>GitHub Pages Tutorial</h1>
+            <p class="subtitle">Building Your First Website</p>
             
-            <div class="overview-box">
-                <h3>📋 What You'll Learn</h3>
+            <nav>
                 <ul>
-                    <li><strong>✓</strong> Set up your GitHub account and choose a professional template</li>
-                    <li><strong>✓</strong> Make your website live on the internet in minutes</li>
-                    <li><strong>✓</strong> Edit and customize your website content</li>
-                    <li><strong>✓</strong> Understand HTML, CSS, and website structure basics</li>
-                    <li><strong>✓</strong> Add images, documents, and links to your site</li>
-                    <li><strong>✓</strong> Troubleshoot common issues and maintain your website</li>
+                    <li><a href="index.html" class="active">Overview</a></li>
+                    <li><a href="setup.html">Part 1: Setup</a></li>
+                    <li><a href="editing.html">Part 2: Editing</a></li>
+                    <li><a href="customization.html">Part 3: Customization</a></li>
+                    <li><a href="troubleshooting.html">Part 4: Troubleshooting</a></li>
+                    <li><a href="reference.html">Reference Guide</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <h1>GitHub Pages Tutorial</h1>
+            
+            <p style="font-size: 1.1em; color: #13294b;">A comprehensive guide to creating and publishing your personal website using GitHub Pages. This tutorial will take you from zero to a live website in just a few hours.</p>
+
+            <div class="info-box">
+                <p><strong>Time to complete:</strong> 2-3 hours at your own pace</p>
+                <p><strong>Prerequisites:</strong> A Google account or email address</p>
+                <p><strong>Cost:</strong> Free</p>
+                <p><strong>Skill level:</strong> Complete beginner-friendly</p>
+            </div>
+
+            <div class="tutorial-section">
+                <h2>What You'll Learn</h2>
+                <ul>
+                    <li>Setting up your GitHub account and choosing a professional template</li>
+                    <li>Publishing your website live on the internet</li>
+                    <li>Editing HTML content and understanding website structure</li>
+                    <li>Customizing colors, fonts, images, and navigation</li>
+                    <li>Troubleshooting common issues and maintaining your site</li>
+                    <li>Using version control to manage changes</li>
                 </ul>
             </div>
 
-            <div class="overview-box" style="border-left-color: #28a745;">
-                <h3>⏱️ Time & Requirements</h3>
-                <ul>
-                    <li><strong>Total Time:</strong> 2-3 hours (at your own pace)</li>
-                    <li><strong>Prerequisites:</strong> A Google account or email address</li>
-                    <li><strong>Cost:</strong> Completely FREE</li>
-                    <li><strong>Skill Level:</strong> Complete beginner-friendly</li>
-                </ul>
-            </div>
-        </div>
+            <div class="tutorial-section">
+                <h2>Tutorial Parts</h2>
 
-        <h2 style="text-align: center; margin-bottom: 30px; color: #24292e;">Choose Your Tutorial Section</h2>
-
-        <div class="tutorial-grid">
-            <a href="setup.html" class="tutorial-card">
-                <h3><span class="icon">🎯</span> Part 1: Setup</h3>
-                <p>Get started by creating your GitHub account, choosing a template, and making your website live on the internet.</p>
-                <div class="topics">
-                    <h4>You'll Learn:</h4>
+                <div class="tutorial-card">
+                    <h3>Part 1: Setup</h3>
+                    <p>Get started by creating your GitHub account, choosing a template, and making your website live on the internet.</p>
                     <ul>
                         <li>Creating your GitHub account</li>
                         <li>Choosing the perfect template</li>
                         <li>Creating your repository</li>
                         <li>Publishing your live website</li>
-                        <li>Quick access setup</li>
                     </ul>
+                    <p style="margin-top: 15px;"><a href="setup.html">Start Part 1 →</a></p>
                 </div>
-            </a>
 
-            <a href="editing.html" class="tutorial-card">
-                <h3><span class="icon">✏️</span> Part 2: Editing</h3>
-                <p>Learn to customize your website by editing text, understanding files, and making the template your own.</p>
-                <div class="topics">
-                    <h4>You'll Learn:</h4>
+                <div class="tutorial-card">
+                    <h3>Part 2: Editing</h3>
+                    <p>Learn to customize your website by editing text, understanding files, and making the template your own.</p>
                     <ul>
-                        <li>Understanding website files</li>
-                        <li>Editing HTML content</li>
-                        <li>Customizing CSS styles</li>
-                        <li>Managing images and documents</li>
+                        <li>Understanding website files (HTML, CSS, JavaScript)</li>
+                        <li>Editing HTML content safely</li>
+                        <li>Committing changes properly</li>
                         <li>Testing your changes</li>
                     </ul>
+                    <p style="margin-top: 15px;"><a href="editing.html">Start Part 2 →</a></p>
                 </div>
-            </a>
 
-            <a href="customization.html" class="tutorial-card">
-                <h3><span class="icon">🎨</span> Part 3: Customization</h3>
-                <p>Take your website to the next level with advanced customization, navigation links, and social media integration.</p>
-                <div class="topics">
-                    <h4>You'll Learn:</h4>
+                <div class="tutorial-card">
+                    <h3>Part 3: Customization</h3>
+                    <p>Take your website to the next level with images, styling, navigation, and social media integration.</p>
                     <ul>
-                        <li>Editing colors and fonts</li>
-                        <li>Navigation menu customization</li>
+                        <li>Adding and replacing images</li>
+                        <li>Uploading documents (resume, CV)</li>
+                        <li>Customizing colors and fonts with CSS</li>
+                        <li>Editing navigation menus</li>
                         <li>Adding social media links</li>
-                        <li>Embedding external content</li>
-                        <li>Adding/removing sections</li>
                     </ul>
+                    <p style="margin-top: 15px;"><a href="customization.html">Start Part 3 →</a></p>
                 </div>
-            </a>
 
-            <a href="troubleshooting.html" class="tutorial-card">
-                <h3><span class="icon">🔧</span> Part 4: Troubleshooting</h3>
-                <p>Master common issues, learn to fix mistakes, and understand how to maintain your website long-term.</p>
-                <div class="topics">
-                    <h4>You'll Learn:</h4>
+                <div class="tutorial-card">
+                    <h3>Part 4: Troubleshooting</h3>
+                    <p>Master common issues, learn to fix mistakes, and maintain your website long-term.</p>
                     <ul>
-                        <li>Common mistakes & fixes</li>
-                        <li>Using version history</li>
+                        <li>Common problems and solutions</li>
+                        <li>Using version history to undo mistakes</li>
                         <li>File organization best practices</li>
                         <li>Regular maintenance tips</li>
-                        <li>Where to get help</li>
                     </ul>
+                    <p style="margin-top: 15px;"><a href="troubleshooting.html">Start Part 4 →</a></p>
                 </div>
-            </a>
 
-            <a href="reference.html" class="tutorial-card">
-                <h3><span class="icon">📚</span> Reference Guide</h3>
-                <p>Quick reference materials including glossary, keyboard shortcuts, checklists, and frequently asked questions.</p>
-                <div class="topics">
-                    <h4>Includes:</h4>
+                <div class="tutorial-card">
+                    <h3>Reference Guide</h3>
+                    <p>Quick reference materials including glossary, keyboard shortcuts, code examples, and FAQ.</p>
                     <ul>
                         <li>Terms glossary</li>
                         <li>Keyboard shortcuts</li>
-                        <li>Publishing checklist</li>
                         <li>Common code examples</li>
                         <li>Frequently asked questions</li>
                     </ul>
+                    <p style="margin-top: 15px;"><a href="reference.html">View Reference →</a></p>
                 </div>
-            </a>
-        </div>
-    </div>
+            </div>
 
-    <div class="footer">
-        <p><strong>Ready to get started?</strong> Click on <strong>Part 1: Setup</strong> to begin your journey!</p>
-        <p style="margin-top: 20px; font-size: 0.9em;">University of North Carolina at Chapel Hill | Last updated: November 2025</p>
-    </div>
+            <div class="footer">
+                <p>University of North Carolina at Chapel Hill | Last updated: November 2025</p>
+            </div>
 
-    <div class="meite-note">
-        <p>This tutorial was created for students in the <strong>Master of Arts in Educational Innovation, Technology, and Entrepreneurship (MEITE)</strong> program at UNC Chapel Hill School of Education.</p>
+            <div class="meite-footer">
+                <p>This tutorial was created for students in the <strong>Master of Arts in Educational Innovation, Technology, and Entrepreneurship (MEITE)</strong> program at UNC Chapel Hill School of Education.</p>
+            </div>
+        </main>
     </div>
 </body>
 </html>

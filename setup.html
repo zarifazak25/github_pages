@@ -5,94 +5,204 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Part 1: Setup - GitHub Pages Tutorial</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Acumin Pro", Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
             line-height: 1.6;
             color: #13294b;
             background-color: #ffffff;
         }
 
-        h1, h2, h3 {
-            font-family: Georgia, "Le Monde Livre", serif;
-        }
+        .layout { display: flex; min-height: 100vh; }
 
-
-        .header {
-            background: linear-gradient(135deg, #4b9cd3 0%, #13294b 100%);
-            border-bottom: 4px solid #4b9cd3;
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
-        }
-
-        .header h1 {
-            font-size: 2.5em;
-            margin-bottom: 0.3em;
-        }
-
-        .breadcrumb {
+        .sidebar {
+            width: 260px;
             background-color: #f8f9fa;
-            padding: 15px 20px;
-            border-bottom: 1px solid #e1e1e1;
+            border-right: 1px solid #e1e1e1;
+            padding: 30px 20px;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
         }
 
-        .breadcrumb a {
-            color: #4b9cd3;
-            text-decoration: none;
+        .sidebar h1 {
+            font-size: 1.5em;
+            color: #13294b;
+            margin-bottom: 10px;
+            font-weight: 600;
         }
 
-        .breadcrumb a:hover {
-            text-decoration: underline;
-        }
-
-        .breadcrumb span {
+        .sidebar .subtitle {
+            font-size: 0.9em;
             color: #767676;
-            margin: 0 5px;
+            margin-bottom: 30px;
+            line-height: 1.4;
         }
 
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 20px;
+        .sidebar nav ul { list-style: none; }
+        .sidebar nav li { margin-bottom: 5px; }
+
+        .sidebar nav a {
+            display: block;
+            padding: 8px 12px;
+            color: #13294b;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.95em;
+        }
+
+        .sidebar nav a:hover {
+            background-color: #e1e1e1;
+            color: #007fae;
+        }
+
+        .sidebar nav a.active {
+            background-color: #4b9cd3;
+            color: #ffffff;
+        }
+
+        .main-content {
+            margin-left: 260px;
+            flex: 1;
+            padding: 40px 60px;
+            max-width: 1000px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #13294b;
+            margin-bottom: 20px;
+            font-weight: 600;
+            border-bottom: 3px solid #4b9cd3;
+            padding-bottom: 15px;
         }
 
         h2 {
             font-size: 1.8em;
-            font-weight: 600;
-            margin-top: 2em;
-            margin-bottom: 1em;
-            padding-bottom: 0.3em;
-            border-bottom: 2px solid #e1e1e1;
             color: #13294b;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-weight: 600;
         }
 
         h3 {
-            font-size: 1.4em;
+            font-size: 1.3em;
+            color: #13294b;
+            margin-top: 25px;
+            margin-bottom: 15px;
             font-weight: 600;
-            margin-top: 1.5em;
-            margin-bottom: 0.8em;
+        }
+
+        p { margin-bottom: 15px; color: #767676; }
+        strong { color: #13294b; font-weight: 600; }
+        a { color: #007fae; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        
+        ul, ol { margin-left: 25px; margin-bottom: 20px; }
+        li { margin-bottom: 8px; color: #767676; }
+
+        code {
+            background-color: #f8f9fa;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: "SFMono-Regular", Consolas, monospace;
+            font-size: 0.9em;
+            color: #13294b;
+            border: 1px solid #e1e1e1;
+        }
+
+        pre {
+            background-color: #f8f9fa;
+            padding: 16px;
+            border-radius: 4px;
+            overflow-x: auto;
+            margin: 20px 0;
+            border: 1px solid #e1e1e1;
+        }
+
+        pre code { background-color: transparent; padding: 0; border: none; }
+
+        .note, .tip {
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-left: 4px solid #4b9cd3;
+            background-color: #f8f9fa;
+        }
+
+        .important, .warning {
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-left: 4px solid #dc3545;
+            background-color: #fff5f5;
+        }
+
+        .success {
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-left: 4px solid #28a745;
+            background-color: #f0fff0;
+        }
+
+        .note strong, .tip strong, .important strong, .warning strong, .success strong {
+            display: block;
+            margin-bottom: 5px;
             color: #13294b;
         }
 
-        p {
-            margin-bottom: 1em;
-            font-size: 16px;
+        .image-placeholder {
+            background-color: #f8f9fa;
+            border: 2px dashed #e1e1e1;
+            padding: 40px;
+            text-align: center;
+            margin: 20px 0;
+            color: #767676;
         }
 
-        ol, ul {
-            margin-left: 2em;
-            margin-bottom: 1.5em;
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid #e1e1e1;
         }
 
-        li {
-            margin-bottom: 0.8em;
-            line-height: 1.8;
+        .nav-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4b9cd3;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        .nav-button:hover {
+            background-color: #007fae;
+            text-decoration: none;
+        }
+
+        .nav-button.secondary {
+            background-color: #767676;
+        }
+
+        .nav-button.secondary:hover {
+            background-color: #13294b;
+        }
+
+        .meite-footer {
+            background-color: #13294b;
+            color: #ffffff;
+            padding: 25px;
+            margin-top: 40px;
+            margin-left: -60px;
+            margin-right: -60px;
+            margin-bottom: -40px;
+        }
+
+        .meite-footer p {
+            color: #ffffff;
+            margin: 0;
         }
 
         .step-header {
@@ -100,7 +210,6 @@
             padding: 20px;
             border-left: 4px solid #4b9cd3;
             margin: 30px 0 20px 0;
-            border-radius: 4px;
         }
 
         .step-header h2 {
@@ -110,474 +219,267 @@
             font-size: 1.6em;
         }
 
-        .note {
-            background-color: #fff3cd;
-            border-left: 4px solid #ffc107;
-            padding: 15px;
-            margin: 20px 0;
-            border-radius: 3px;
-        }
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                position: relative;
+                height: auto;
+                border-right: none;
+                border-bottom: 1px solid #e1e1e1;
+            }
 
-        .important {
-            background-color: #f8d7da;
-            border-left: 4px solid #dc3545;
-            padding: 15px;
-            margin: 20px 0;
-            border-radius: 3px;
-        }
+            .main-content {
+                margin-left: 0;
+                padding: 30px 20px;
+            }
 
-        .tip {
-            background-color: #d1ecf1;
-            border-left: 4px solid #17a2b8;
-            padding: 15px;
-            margin: 20px 0;
-            border-radius: 3px;
-        }
+            .layout {
+                flex-direction: column;
+            }
 
-        .success {
-            background-color: #d4edda;
-            border-left: 4px solid #28a745;
-            padding: 15px;
-            margin: 20px 0;
-            border-radius: 3px;
-        }
+            .meite-footer {
+                margin-left: -20px;
+                margin-right: -20px;
+                margin-bottom: -30px;
+            }
 
-        .note strong, .important strong, .tip strong, .success strong {
-            display: block;
-            margin-bottom: 5px;
-        }
+            .navigation {
+                flex-direction: column;
+                gap: 10px;
+            }
 
-        .image-placeholder {
-            background-color: #e1e1e1;
-            border: 2px dashed #959da5;
-            padding: 60px 40px;
-            text-align: center;
-            margin: 20px 0;
-            border-radius: 6px;
-            color: #767676;
-            font-style: italic;
-        }
-
-        code {
-            background-color: #f8f9fa;
-            padding: 3px 6px;
-            border-radius: 3px;
-            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
-            font-size: 0.9em;
-            color: #e83e8c;
-        }
-
-        pre {
-            background-color: #f8f9fa;
-            padding: 16px;
-            border-radius: 6px;
-            overflow-x: auto;
-            margin: 15px 0;
-        }
-
-        pre code {
-            background-color: transparent;
-            padding: 0;
-            color: #13294b;
-        }
-
-        .navigation {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 60px;
-            padding-top: 30px;
-            border-top: 2px solid #e1e1e1;
-        }
-
-        .nav-button {
-            display: inline-block;
-            padding: 12px 24px;
-            background-color: #4b9cd3;
-            color: white;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: 500;
-            transition: background-color 0.3s;
-        }
-
-        .nav-button:hover {
-            background-color: #007fae;
-        }
-
-        .nav-button.secondary {
-            background-color: #6c757d;
-        }
-
-        .nav-button.secondary:hover {
-            background-color: #5a6268;
-        }
-
-        a {
-            color: #4b9cd3;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        strong {
-            font-weight: 600;
+            .nav-button {
+                width: 100%;
+                text-align: center;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>Part 1: Setting Up Your Live Website</h1>
-        <p>From Zero to Published in 7 Steps</p>
-    </div>
-
-    <div class="breadcrumb">
-        <a href="index.html">← Back to Tutorial Home</a>
-        <span>|</span>
-        <strong>Part 1: Setup</strong>
-    </div>
-
-    <div class="container">
-        <p style="font-size: 1.1em; color: #767676;">In this section, you'll create your GitHub account, choose a template, and publish your website live on the internet. By the end of this part, you'll have a working website with its own URL!</p>
-
-        <!-- STEP 1 -->
-        <div class="step-header">
-            <h2>Step 1: Create Your GitHub Account</h2>
-        </div>
-
-        <p>GitHub is a platform where developers store and share code. It's also where you'll host your website for free!</p>
-
-        <h3>What to do:</h3>
-        <ol>
-            <li>Open your web browser and go to <a href="https://github.com" target="_blank">GitHub.com</a></li>
-            <li>You'll see a "Sign up" button in the top right corner. Click it.</li>
-            <li>Choose one of these sign-up methods:
+    <div class="layout">
+        <aside class="sidebar">
+            <h1>GitHub Pages Tutorial</h1>
+            <p class="subtitle">Building Your First Website</p>
+            
+            <nav>
                 <ul>
-                    <li><strong>Sign up with Google:</strong> If you have a Gmail account, this is the fastest option. Click the "Sign up with Google" button and follow the prompts.</li>
-                    <li><strong>Sign up with Email:</strong> Enter your email address, create a password (make it strong!), and choose a username. Your username will be part of your website URL, so choose something professional.</li>
+                    <li><a href="index.html">Overview</a></li>
+                    <li><a href="setup.html" class="active">Part 1: Setup</a></li>
+                    <li><a href="editing.html">Part 2: Editing</a></li>
+                    <li><a href="customization.html">Part 3: Customization</a></li>
+                    <li><a href="troubleshooting.html">Part 4: Troubleshooting</a></li>
+                    <li><a href="reference.html">Reference Guide</a></li>
                 </ul>
-            </li>
-            <li>Complete the verification process (you might need to solve a puzzle or verify your email)</li>
-            <li>Follow any additional setup steps GitHub shows you</li>
-        </ol>
+            </nav>
+        </aside>
 
-        <div class="note">
-            <strong>💡 Note:</strong> If you already have a GitHub account, simply log in and skip to Step 2.
-        </div>
+        <main class="main-content">
+            <h1>Part 1: Setting Up Your Live Website</h1>
+            
+            <p style="font-size: 1.1em; color: #13294b;">In this section, you'll create your GitHub account, choose a template, and publish your website live on the internet. By the end of this part, you'll have a working website with its own URL.</p>
 
-        <div class="tip">
-            <strong>✨ Tip:</strong> Your GitHub username will appear in your website URL like this: <code>https://your-username.github.io</code>. Choose a professional username if you plan to use this website for your portfolio or resume!
-        </div>
-
-        <!-- STEP 2 -->
-        <div class="step-header">
-            <h2>Step 2: Choose a Website Template</h2>
-        </div>
-
-        <p>Instead of building a website from scratch, you'll start with a professionally designed template. This gives you a beautiful starting point that you can customize later.</p>
-
-        <h3>What to do:</h3>
-        <ol>
-            <li>Open this link in a new tab: <a href="https://zarifazak25.github.io/pages_template_gallery/" target="_blank">Template Gallery</a></li>
-            <li>Browse through the available templates. Each template shows a preview of what the website looks like.</li>
-            <li>Consider these factors when choosing:
-                <ul>
-                    <li><strong>Purpose:</strong> Are you making a portfolio, resume site, or personal blog?</li>
-                    <li><strong>Style:</strong> Do you prefer minimalist, colorful, modern, or professional designs?</li>
-                    <li><strong>Layout:</strong> Do you want a one-page site (everything on the homepage) or multi-page site (separate pages for About, Projects, Contact, etc.)?</li>
-                    <li><strong>Features:</strong> Does it have sections you need like portfolio gallery, blog, contact form, etc.?</li>
-                </ul>
-            </li>
-            <li>Click on templates to see larger previews and explore their features</li>
-            <li>Take your time! You want to pick something you'll be happy with.</li>
-        </ol>
-
-        <div class="important">
-            <strong>⚠️ Important:</strong> Choosing your template is an important decision! If you want to change templates later, you'll have to start over from Step 1 and rebuild your repository. So take your time and choose one you'll stick with.
-        </div>
-
-        <div class="tip">
-            <strong>✨ Tip:</strong> Look for templates that match your goals. If you're a designer, choose one with a strong portfolio section. If you're a writer, pick one with a blog layout. If you want to showcase projects, find one with a projects gallery.
-        </div>
-
-        <!-- STEP 3 -->
-        <div class="step-header">
-            <h2>Step 3: Access the Template Repository</h2>
-        </div>
-
-        <p>Once you've chosen your template, you need to access its code repository (the place where all the website files are stored).</p>
-
-        <h3>What to do:</h3>
-        <ol>
-            <li>On your chosen template card, look for the <strong>black button that says "GitHub Repo"</strong></li>
-            <li>Click this button</li>
-            <li>You'll be redirected to GitHub, where you'll see the template's repository page</li>
-            <li>This page shows all the code files that make up the website. Don't worry if it looks complicated—you'll learn what everything means soon!</li>
-        </ol>
-
-        <div class="image-placeholder">
-            📸 Screenshot: Template card showing the black "GitHub Repo" button
-        </div>
-
-        <div class="note">
-            <strong>💡 What is a repository?</strong> A repository (or "repo" for short) is like a folder that holds all the files for a project. In this case, it holds all the files for your website: HTML, CSS, images, and more.
-        </div>
-
-        <!-- STEP 4 -->
-        <div class="step-header">
-            <h2>Step 4: Create Your Repository</h2>
-        </div>
-
-        <p>Now you'll make your own copy of the template. This is called "creating a repository from a template."</p>
-
-        <h3>What to do:</h3>
-        <ol>
-            <li>At the top of the repository page, look for a <strong>green button that says "Use this template"</strong></li>
-            <li>Click it, and a dropdown menu will appear</li>
-            <li>Select <strong>"Create a new repository"</strong></li>
-            <li>You'll now see a form with several fields to fill out:</li>
-        </ol>
-
-        <h3>Filling out the repository form:</h3>
-
-        <p><strong>A. Repository Name:</strong></p>
-        <ul>
-            <li>Enter a name for your website repository</li>
-            <li>Good examples: <code>my-portfolio</code>, <code>john-doe-website</code>, <code>personal-site</code></li>
-            <li>Bad examples: <code>website 123</code> (has spaces), <code>My_RANDOM_Site!!!</code> (unprofessional)</li>
-            <li>Use lowercase letters, hyphens (not spaces), and keep it simple</li>
-        </ul>
-
-        <div class="image-placeholder">
-            📸 Screenshot: Repository name field with example name entered
-        </div>
-
-        <p><strong>B. Description:</strong></p>
-        <ul>
-            <li>Add a brief description of yourself or your website</li>
-            <li>Example: "Personal portfolio showcasing my web development projects and skills"</li>
-            <li>Example: "Professional resume site for Jane Doe, UX Designer"</li>
-            <li>This description helps with SEO (Search Engine Optimization), which means Google and other search engines can find your website more easily</li>
-        </ul>
-
-        <p><strong>C. Visibility:</strong></p>
-        <ul>
-            <li>Make sure "Public" is selected</li>
-            <li><strong>This is crucial!</strong> If you select "Private," your website won't be accessible to anyone on the internet</li>
-        </ul>
-
-        <div class="important">
-            <strong>⚠️ Critical:</strong> Your repository MUST be set to "Public" for GitHub Pages to work. A private repository won't create a live, publicly accessible website.
-        </div>
-
-        <ol start="5">
-            <li>Once you've filled everything out, click the <strong>green "Create repository"</strong> button at the bottom</li>
-            <li>Wait a few seconds while GitHub creates your repository</li>
-        </ol>
-
-        <div class="success">
-            <strong>🎉 Success!</strong> You now have your own copy of the template! You'll be redirected to your new repository's homepage.
-        </div>
-
-        <div class="tip">
-            <strong>✨ SEO Tip:</strong> A well-written description with relevant keywords helps people find your website through Google. Include words related to your profession, skills, or what visitors will find on your site.
-        </div>
-
-        <!-- STEP 5 -->
-        <div class="step-header">
-            <h2>Step 5: Understanding Your Repository Structure</h2>
-        </div>
-
-        <p>Before we make the website live, let's take a quick tour of what you're looking at.</p>
-
-        <h3>The Repository Homepage:</h3>
-        <p>You're now looking at your repository homepage. Here's what you'll see:</p>
-
-        <ul>
-            <li><strong>The <code>&lt;&gt; Code</code> tab:</strong> This is where you'll spend most of your time. It shows all your website files.</li>
-            <li><strong>File List:</strong> You'll see a list of files and folders. These are all the pieces that make up your website.</li>
-        </ul>
-
-        <h3>Essential Files You'll See:</h3>
-
-        <p><strong>1. HTML Files (.html):</strong></p>
-        <ul>
-            <li>HTML stands for "HyperText Markup Language"</li>
-            <li>HTML files contain the <strong>structure and content</strong> of your web pages—the text, headings, paragraphs, links, etc.</li>
-            <li><code>index.html</code> is your homepage (the main page people see when they visit your site)</li>
-            <li>If you have a multi-page website, you'll see other HTML files like <code>about.html</code>, <code>projects.html</code>, etc.</li>
-        </ul>
-
-        <p><strong>2. CSS Files (.css):</strong></p>
-        <ul>
-            <li>CSS stands for "Cascading Style Sheets"</li>
-            <li>CSS files control the <strong>design and appearance</strong> of your website—colors, fonts, spacing, layouts, etc.</li>
-            <li>Common names: <code>style.css</code>, <code>main.css</code>, <code>styles.css</code></li>
-            <li>Without CSS, your website would be plain black text on a white background!</li>
-        </ul>
-
-        <p><strong>3. Other Files You Might See:</strong></p>
-        <ul>
-            <li><strong>JavaScript Files (.js):</strong> These add interactive features (optional, not all templates have them)</li>
-            <li><strong>Image Folder (/images or /img):</strong> Stores photos, icons, and graphics</li>
-            <li><strong>Documents Folder (/files or /documents):</strong> Stores PDFs like your resume</li>
-            <li><strong>README.md:</strong> A text file explaining the template (useful to read!)</li>
-        </ul>
-
-        <div class="note">
-            <strong>💡 Quick Analogy:</strong> Think of building a website like building a house:
-            <ul style="margin-top: 10px;">
-                <li><strong>HTML</strong> is the structure (walls, rooms, doors)</li>
-                <li><strong>CSS</strong> is the decoration (paint colors, furniture, style)</li>
-                <li><strong>JavaScript</strong> is the functionality (light switches, appliances)</li>
-            </ul>
-        </div>
-
-        <div class="tip">
-            <strong>✨ Tip:</strong> Don't worry if you see files you don't recognize yet! You don't need to understand everything right now. In Part 2, we'll focus only on the files you need to edit.
-        </div>
-
-        <!-- STEP 6 -->
-        <div class="step-header">
-            <h2>Step 6: Make Your Website Live (Enable GitHub Pages)</h2>
-        </div>
-
-        <p><strong>This is the most important step!</strong> Right now, your repository exists, but it's not a live website yet. This step activates GitHub Pages, which turns your code into a real website that anyone can visit.</p>
-
-        <h3>What to do:</h3>
-        <ol>
-            <li>At the top of your repository page, look for the navigation bar with tabs like <code>Code</code>, <code>Issues</code>, <code>Pull requests</code></li>
-            <li>Click on <strong>Settings</strong> (it's usually the last tab on the right)</li>
-            <li>You'll see a sidebar on the left side of the screen</li>
-            <li>In the sidebar, scroll down until you find a section called <strong>"Code and automation"</strong></li>
-            <li>Under "Code and automation," click on <strong>Pages</strong></li>
-        </ol>
-
-        <div class="image-placeholder">
-            📸 Screenshot: Settings page showing the left sidebar with "Pages" highlighted
-        </div>
-
-        <h3>Configuring GitHub Pages:</h3>
-        <ol start="6">
-            <li>On the Pages settings screen, look for a section called <strong>"Source"</strong> or <strong>"Build and deployment"</strong></li>
-            <li>Under <strong>"Branch"</strong>, you'll see a dropdown that says <strong>"None"</strong></li>
-            <li>Click on it and select <strong>"main"</strong> (some templates might say "master" instead—that's okay, choose that)</li>
-            <li>After selecting "main," another dropdown will appear next to it showing a folder icon</li>
-            <li>This should automatically say <strong>"/ (root)"</strong>—leave it as is</li>
-            <li>Click the <strong>Save</strong> button</li>
-        </ol>
-
-        <div class="image-placeholder">
-            📸 Screenshot: Pages settings showing Branch dropdown with "main" selected and folder set to "/ (root)"
-        </div>
-
-        <div class="note">
-            <strong>💡 What just happened?</strong> You told GitHub: "Please take the files in the 'main' branch of my repository and publish them as a website!" GitHub Pages will now process your files and create a live website.
-        </div>
-
-        <h3>Waiting for Your Site to Go Live:</h3>
-        <ol start="12">
-            <li>After clicking Save, GitHub starts building your website. This takes <strong>2-3 minutes</strong></li>
-            <li>You'll see a message that says "GitHub Pages source saved" or something similar</li>
-            <li>Be patient! Don't refresh constantly. Give it a full 2-3 minutes.</li>
-            <li>After waiting, <strong>refresh the page</strong> (press F5 or click the refresh button in your browser)</li>
-        </ol>
-
-        <div class="success">
-            <strong>🎉 Your Website is Live!</strong> After refreshing, you'll see a message at the top that says:
-            <div style="margin-top: 10px; padding: 15px; background: white; border: 1px solid #d4edda; border-radius: 4px;">
-                <p style="margin: 0;"><strong>"Your site is live at"</strong> <code>https://your-username.github.io/repository-name/</code></p>
+            <div class="step-header">
+                <h2>Step 1: Create Your GitHub Account</h2>
             </div>
-        </div>
 
-        <h3>Viewing Your Website:</h3>
-        <ol start="16">
-            <li>You'll see a <strong>"Visit site"</strong> button or clickable link</li>
-            <li>Click it to open your live website in a new tab</li>
-            <li>Congratulations! 🎊 You now have a real website on the internet with its own URL!</li>
-        </ol>
+            <p>GitHub is a platform where developers store and share code. It's also where you'll host your website for free.</p>
 
-        <div class="tip">
-            <strong>✨ Share Your Site:</strong> You can now share this URL with anyone in the world, and they'll be able to see your website! Copy the URL and test it in a different browser or on your phone.
-        </div>
-
-        <div class="important">
-            <strong>⚠️ Troubleshooting:</strong> If your site isn't showing up after 5 minutes:
-            <ul style="margin-top: 10px;">
-                <li>Make sure you selected "main" branch (not "None")</li>
-                <li>Verify your repository is set to "Public" (check Settings → General → Danger Zone)</li>
-                <li>Try refreshing the Settings → Pages page again</li>
-                <li>Clear your browser cache and try the URL in an incognito/private window</li>
-            </ul>
-        </div>
-
-        <!-- STEP 7 -->
-        <div class="step-header">
-            <h2>Step 7: Quick Access Setup</h2>
-        </div>
-
-        <p>This final step makes your workflow easier. You'll add your website URL to your repository homepage so you can quickly visit your live site without going to Settings every time.</p>
-
-        <h3>What to do:</h3>
-        <ol>
-            <li><strong>Copy your website URL:</strong> Go back to Settings → Pages and copy the full URL of your live website (e.g., <code>https://your-username.github.io/repository-name/</code>)</li>
-            <li><strong>Go to your repository homepage:</strong> Click the <code>&lt;&gt; Code</code> tab at the top left</li>
-            <li><strong>Find the "About" section:</strong> On the right side of the page, you'll see a section labeled "About" (it's in the sidebar)</li>
-            <li><strong>Click the settings gear icon:</strong> Next to "About," there's a small ⚙️ gear/settings icon. Click it.</li>
-            <li><strong>Add your website URL:</strong> A popup will appear. Look for a field labeled "Website" and paste your website URL there</li>
-            <li><strong>Save changes:</strong> Click "Save changes" at the bottom of the popup</li>
-        </ol>
-
-        <div class="image-placeholder">
-            📸 Screenshot: Repository homepage showing the About section with the settings gear icon highlighted
-        </div>
-
-        <div class="image-placeholder">
-            📸 Screenshot: About settings popup showing the Website field with URL pasted in
-        </div>
-
-        <div class="success">
-            <strong>🎉 Done!</strong> Now your website URL appears in the "About" section of your repository. You can click it anytime to quickly visit your live site while you're editing!
-        </div>
-
-        <div class="tip">
-            <strong>✨ Pro Tip:</strong> This is incredibly useful when you're making changes to your website. You can:
-            <ol style="margin-top: 10px;">
-                <li>Edit files in the Code tab</li>
-                <li>Save changes (commit)</li>
-                <li>Click your website link in the About section to see the changes live</li>
-                <li>No need to dig through Settings every time!</li>
+            <h3>What to do:</h3>
+            <ol>
+                <li>Open your web browser and go to <a href="https://github.com" target="_blank">GitHub.com</a></li>
+                <li>Click the "Sign up" button in the top right corner</li>
+                <li>Choose one of these sign-up methods:
+                    <ul>
+                        <li><strong>Sign up with Google:</strong> If you have a Gmail account, this is the fastest option</li>
+                        <li><strong>Sign up with Email:</strong> Enter your email address, create a password, and choose a username</li>
+                    </ul>
+                </li>
+                <li>Complete the verification process</li>
+                <li>Follow any additional setup steps GitHub shows you</li>
             </ol>
-        </div>
 
-        <hr style="margin: 40px 0; border: none; border-top: 2px solid #e1e1e1;">
+            <div class="note">
+                <strong>Note:</strong> If you already have a GitHub account, simply log in and skip to Step 2.
+            </div>
 
-        <div class="success" style="padding: 30px;">
-            <h2 style="margin: 0 0 15px 0; padding: 0; border: none;">🎊 Congratulations! Part 1 Complete!</h2>
-            <p style="margin: 0;">You've successfully:</p>
-            <ul style="margin: 15px 0 0 20px;">
-                <li>✅ Created your GitHub account</li>
-                <li>✅ Chosen and copied a professional template</li>
-                <li>✅ Created your repository</li>
-                <li>✅ Published your website live on the internet</li>
-                <li>✅ Set up quick access to your site</li>
+            <div class="tip">
+                <strong>Tip:</strong> Your GitHub username will appear in your website URL like this: <code>https://your-username.github.io</code>. Choose a professional username if you plan to use this website for your portfolio or resume.
+            </div>
+
+            <div class="step-header">
+                <h2>Step 2: Choose a Website Template</h2>
+            </div>
+
+            <p>Instead of building a website from scratch, you'll start with a professionally designed template.</p>
+
+            <h3>What to do:</h3>
+            <ol>
+                <li>Open this link in a new tab: <a href="https://zarifazak25.github.io/pages_template_gallery/" target="_blank">Template Gallery</a></li>
+                <li>Browse through the available templates</li>
+                <li>Consider these factors when choosing:
+                    <ul>
+                        <li><strong>Purpose:</strong> Portfolio, resume site, or personal blog?</li>
+                        <li><strong>Style:</strong> Minimalist, colorful, modern, or professional?</li>
+                        <li><strong>Layout:</strong> One-page or multi-page site?</li>
+                        <li><strong>Features:</strong> Portfolio gallery, blog, contact form?</li>
+                    </ul>
+                </li>
+                <li>Take your time to find a template you'll be happy with</li>
+            </ol>
+
+            <div class="important">
+                <strong>Important:</strong> Choosing your template is an important decision. If you want to change templates later, you'll have to start over from Step 1. Choose carefully!
+            </div>
+
+            <div class="step-header">
+                <h2>Step 3: Access the Template Repository</h2>
+            </div>
+
+            <p>Once you've chosen your template, you need to access its code repository.</p>
+
+            <h3>What to do:</h3>
+            <ol>
+                <li>On your chosen template card, look for the <strong>black button that says "GitHub Repo"</strong></li>
+                <li>Click this button</li>
+                <li>You'll be redirected to GitHub, where you'll see the template's repository page</li>
+            </ol>
+
+            <div class="image-placeholder">
+                Screenshot: Template card showing the "GitHub Repo" button
+            </div>
+
+            <div class="note">
+                <strong>What is a repository?</strong> A repository (or "repo") is like a folder that holds all the files for a project. In this case, it holds all the files for your website: HTML, CSS, images, and more.
+            </div>
+
+            <div class="step-header">
+                <h2>Step 4: Create Your Repository</h2>
+            </div>
+
+            <p>Now you'll make your own copy of the template.</p>
+
+            <h3>What to do:</h3>
+            <ol>
+                <li>At the top of the repository page, look for a green button that says <strong>"Use this template"</strong></li>
+                <li>Click it and select <strong>"Create a new repository"</strong></li>
+                <li>Fill out the repository form:
+                    <ul>
+                        <li><strong>Repository name:</strong> Enter a name like <code>my-portfolio</code> or <code>personal-site</code></li>
+                        <li><strong>Description:</strong> Add a brief description like "Personal portfolio website"</li>
+                        <li><strong>Visibility:</strong> Keep it set to <strong>Public</strong></li>
+                    </ul>
+                </li>
+                <li>Click <strong>"Create repository"</strong></li>
+            </ol>
+
+            <div class="image-placeholder">
+                Screenshot: Repository creation form
+            </div>
+
+            <div class="important">
+                <strong>Critical:</strong> Your repository MUST be set to "Public" for GitHub Pages to work. A private repository won't create a live, publicly accessible website.
+            </div>
+
+            <div class="step-header">
+                <h2>Step 5: Understanding Your Repository</h2>
+            </div>
+
+            <p>You're now looking at your repository homepage. Here's what you'll see:</p>
+
+            <ul>
+                <li><strong>The <code>&lt;&gt; Code</code> tab:</strong> Shows all your website files</li>
+                <li><strong>HTML files (.html):</strong> Structure and content of your pages</li>
+                <li><strong>CSS files (.css):</strong> Design and styling</li>
+                <li><strong>Images folder:</strong> Photos and graphics</li>
             </ul>
-            <p style="margin: 15px 0 0 0;"><strong>You now have a real website with its own URL that anyone in the world can visit!</strong></p>
-        </div>
 
-        <div class="note">
-            <strong>📝 What's Next?</strong> Right now, your website shows the template's placeholder content (sample text, images, and information). In <strong>Part 2: Editing</strong>, you'll learn how to replace this with your own personal information, change text, add your photos, and make the website truly yours!
-        </div>
+            <div class="note">
+                <strong>Quick Analogy:</strong> Think of building a website like building a house:
+                <ul style="margin-top: 10px;">
+                    <li><strong>HTML</strong> is the structure (walls, rooms, doors)</li>
+                    <li><strong>CSS</strong> is the decoration (paint, furniture, style)</li>
+                    <li><strong>JavaScript</strong> is the functionality (light switches, appliances)</li>
+                </ul>
+            </div>
 
-        <div class="navigation">
-            <a href="index.html" class="nav-button secondary">← Back to Tutorial Home</a>
-            <a href="editing.html" class="nav-button">Continue to Part 2: Editing →</a>
-        </div>
-    </div>
+            <div class="step-header">
+                <h2>Step 6: Make Your Website Live</h2>
+            </div>
 
-    <div class="meite-note" style="background-color: #13294b; color: white; padding: 25px 20px; text-align: center; font-size: 0.95em; border-top: 4px solid #4b9cd3; margin-top: 60px;">
-        <p style="color: white; margin: 0;">This tutorial was created for students in the <strong>Master of Arts in Educational Innovation, Technology, and Entrepreneurship (MEITE)</strong> program at UNC Chapel Hill School of Education.</p>
+            <p><strong>This is the most important step!</strong> Right now, your repository exists, but it's not a live website yet.</p>
+
+            <h3>What to do:</h3>
+            <ol>
+                <li>Click on <strong>Settings</strong> in the top navigation bar</li>
+                <li>In the left sidebar, scroll down and click on <strong>Pages</strong></li>
+                <li>Under "Branch", click the dropdown that says <strong>"None"</strong></li>
+                <li>Select <strong>"main"</strong></li>
+                <li>Make sure the folder says <strong>"/ (root)"</strong></li>
+                <li>Click <strong>Save</strong></li>
+                <li>Wait 2-3 minutes for GitHub to build your website</li>
+            </ol>
+
+            <div class="image-placeholder">
+                Screenshot: GitHub Pages settings page
+            </div>
+
+            <p>After waiting and refreshing the page, you'll see a message:</p>
+
+            <div class="success">
+                <strong>Success!</strong> Your site is live at <code>https://your-username.github.io/repository-name/</code>
+            </div>
+
+            <ol start="8">
+                <li>Click the <strong>"Visit site"</strong> button to see your live website</li>
+                <li>Congratulations! You now have a real website on the internet!</li>
+            </ol>
+
+            <div class="step-header">
+                <h2>Step 7: Quick Access Setup</h2>
+            </div>
+
+            <p>Add your website URL to your repository homepage for easy access.</p>
+
+            <h3>What to do:</h3>
+            <ol>
+                <li>Copy your website URL from Settings → Pages</li>
+                <li>Click the <code>&lt;&gt; Code</code> tab to go to your repository homepage</li>
+                <li>On the right side, find the "About" section</li>
+                <li>Click the settings gear icon next to "About"</li>
+                <li>Paste your website URL in the "Website" field</li>
+                <li>Click "Save changes"</li>
+            </ol>
+
+            <div class="success">
+                <strong>Done!</strong> Now your website URL appears in the About section. You can click it anytime to quickly visit your live site!
+            </div>
+
+            <div class="success" style="padding: 25px; margin-top: 40px;">
+                <h2 style="margin-top: 0; font-size: 1.5em;">Congratulations! Part 1 Complete!</h2>
+                <p style="margin-top: 15px;">You've successfully:</p>
+                <ul style="margin: 15px 0 0 20px;">
+                    <li>Created your GitHub account</li>
+                    <li>Chosen and copied a professional template</li>
+                    <li>Created your repository</li>
+                    <li>Published your website live on the internet</li>
+                    <li>Set up quick access to your site</li>
+                </ul>
+                <p style="margin-top: 15px;"><strong>You now have a real website with its own URL that anyone can visit!</strong></p>
+            </div>
+
+            <div class="note">
+                <strong>What's Next?</strong> In Part 2: Editing, you'll learn how to replace the template's placeholder content with your own personal information, change text, add your photos, and make the website truly yours!
+            </div>
+
+            <div class="navigation">
+                <a href="index.html" class="nav-button secondary">← Back to Overview</a>
+                <a href="editing.html" class="nav-button">Continue to Part 2 →</a>
+            </div>
+
+            <div class="meite-footer">
+                <p>This tutorial was created for students in the <strong>Master of Arts in Educational Innovation, Technology, and Entrepreneurship (MEITE)</strong> program at UNC Chapel Hill School of Education.</p>
+            </div>
+        </main>
     </div>
 </body>
 </html>
