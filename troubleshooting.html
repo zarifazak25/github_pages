@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 4: Troubleshooting - GitHub Pages Tutorial</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Acumin Pro", Helvetica, Arial, sans-serif; line-height: 1.6; color: #13294b; background-color: #ffffff; }
+
+        h1, h2, h3 {
+            font-family: Georgia, "Le Monde Livre", serif;
+        }
+
+        .header { background: linear-gradient(135deg, #4b9cd3 0%, #13294b 100%);
+            border-bottom: 4px solid #4b9cd3; color: white; padding: 40px 20px; text-align: center; }
+        .header h1 { font-size: 2.5em; margin-bottom: 0.3em; }
+        .breadcrumb { background-color: #f8f9fa; padding: 15px 20px; border-bottom: 1px solid #e1e1e1; }
+        .breadcrumb a { color: #4b9cd3; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .breadcrumb span { color: #767676; margin: 0 5px; }
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        h2 { font-size: 1.8em; font-weight: 600; margin-top: 2em; margin-bottom: 1em; padding-bottom: 0.3em; border-bottom: 2px solid #e1e1e1; color: #13294b; }
+        h3 { font-size: 1.4em; font-weight: 600; margin-top: 1.5em; margin-bottom: 0.8em; color: #13294b; }
+        p { margin-bottom: 1em; font-size: 16px; }
+        ol, ul { margin-left: 2em; margin-bottom: 1.5em; }
+        li { margin-bottom: 0.8em; line-height: 1.8; }
+        .step-header { background-color: #f8f9fa; padding: 20px; border-left: 4px solid #4b9cd3; margin: 30px 0 20px 0; border-radius: 4px; }
+        .step-header h2 { margin: 0; padding: 0; border: none; font-size: 1.6em; }
+        .note, .important, .tip, .success, .warning { padding: 15px; margin: 20px 0; border-radius: 3px; }
+        .note { background-color: #fff3cd; border-left: 4px solid #ffc107; }
+        .important { background-color: #f8d7da; border-left: 4px solid #dc3545; }
+        .tip { background-color: #d1ecf1; border-left: 4px solid #17a2b8; }
+        .success { background-color: #d4edda; border-left: 4px solid #28a745; }
+        .warning { background-color: #fff3cd; border-left: 4px solid #ff6b6b; }
+        .note strong, .important strong, .tip strong, .success strong, .warning strong { display: block; margin-bottom: 5px; }
+        code { background-color: #f8f9fa; padding: 3px 6px; border-radius: 3px; font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.9em; color: #e83e8c; }
+        pre { background-color: #f8f9fa; padding: 16px; border-radius: 6px; overflow-x: auto; margin: 15px 0; border: 1px solid #e1e1e1; }
+        pre code { background-color: transparent; padding: 0; color: #13294b; }
+        .problem-solution { background-color: #f8f9fa; border: 2px solid #dee2e6; border-radius: 6px; padding: 20px; margin: 20px 0; }
+        .problem-solution h4 { color: #dc3545; margin-bottom: 10px; }
+        .problem-solution .solution { margin-top: 15px; padding-top: 15px; border-top: 1px solid #dee2e6; }
+        .problem-solution .solution h5 { color: #28a745; margin-bottom: 10px; }
+        .navigation { display: flex; justify-content: space-between; margin-top: 60px; padding-top: 30px; border-top: 2px solid #e1e1e1; }
+        .nav-button { display: inline-block; padding: 12px 24px; background-color: #4b9cd3; color: white; text-decoration: none; border-radius: 6px; font-weight: 500; transition: background-color 0.3s; }
+        .nav-button:hover { background-color: #007fae; }
+        .nav-button.secondary { background-color: #6c757d; }
+        .nav-button.secondary:hover { background-color: #5a6268; }
+        a { color: #4b9cd3; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        strong { font-weight: 600; }
+        .checklist { background-color: #f8f9fa; padding: 20px; border-radius: 6px; margin: 20px 0; }
+        .checklist h4 { margin-bottom: 15px; color: #13294b; }
+        .checklist ul { list-style: none; padding-left: 0; }
+        .checklist li:before { content: "☐ "; font-size: 1.2em; margin-right: 8px; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Part 4: Troubleshooting & Maintenance</h1>
+        <p>Fixing Problems & Keeping Your Site Running</p>
+    </div>
+
+    <div class="breadcrumb">
+        <a href="index.html">← Back to Tutorial Home</a>
+        <span>|</span>
+        <a href="setup.html">Part 1</a>
+        <span>|</span>
+        <a href="editing.html">Part 2</a>
+        <span>|</span>
+        <a href="customization.html">Part 3</a>
+        <span>|</span>
+        <strong>Part 4: Troubleshooting</strong>
+    </div>
+
+    <div class="container">
+        <p style="font-size: 1.1em; color: #767676;">Even the most careful developers run into problems! This section will help you fix common issues, recover from mistakes, organize your files properly, and maintain your website long-term.</p>
+
+        <!-- COMMON PROBLEMS -->
+        <h2>Common Problems & Solutions</h2>
+
+        <div class="problem-solution">
+            <h4>❌ Problem: My website isn't showing up / I get a 404 error</h4>
+            <div class="solution">
+                <h5>✅ Solutions to try:</h5>
+                <ol>
+                    <li><strong>Check if GitHub Pages is enabled:</strong>
+                        <ul>
+                            <li>Go to Settings → Pages</li>
+                            <li>Make sure "Branch" is set to "main" (not "None")</li>
+                            <li>Click Save again if needed</li>
+                        </ul>
+                    </li>
+                    <li><strong>Verify repository is Public:</strong>
+                        <ul>
+                            <li>Go to Settings → General</li>
+                            <li>Scroll down to "Danger Zone"</li>
+                            <li>Check if it says "This repository is public"</li>
+                            <li>If private, click "Change visibility" to make it public</li>
+                        </ul>
+                    </li>
+                    <li><strong>Wait longer:</strong> Sometimes it takes 5-10 minutes for pages to deploy</li>
+                    <li><strong>Check your URL:</strong> Make sure you're using the correct URL format:
+                        <ul>
+                            <li><code>https://username.github.io/repository-name/</code></li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="problem-solution">
+            <h4>❌ Problem: My changes aren't showing up on the live site</h4>
+            <div class="solution">
+                <h5>✅ Solutions to try:</h5>
+                <ol>
+                    <li><strong>Did you commit your changes?</strong>
+                        <ul>
+                            <li>Editing isn't enough—you MUST click "Commit changes"</li>
+                            <li>Check the file to see if your edits are there</li>
+                        </ul>
+                    </li>
+                    <li><strong>Wait 2-3 minutes:</strong> GitHub Pages needs time to rebuild</li>
+                    <li><strong>Hard refresh your browser:</strong>
+                        <ul>
+                            <li>Windows/Linux: <code>Ctrl + Shift + R</code></li>
+                            <li>Mac: <code>Cmd + Shift + R</code></li>
+                        </ul>
+                    </li>
+                    <li><strong>Clear cache or use incognito mode:</strong> Open site in private/incognito window</li>
+                    <li><strong>Try a different browser or device:</strong> Test on your phone or different computer</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="problem-solution">
+            <h4>❌ Problem: My images aren't showing up (broken image icon)</h4>
+            <div class="solution">
+                <h5>✅ Solutions to try:</h5>
+                <ol>
+                    <li><strong>Check filename matches EXACTLY:</strong>
+                        <ul>
+                            <li>HTML says: <code>profile.jpg</code></li>
+                            <li>File must be named: <code>profile.jpg</code> (not Profile.jpg or profile.JPG)</li>
+                            <li>Case-sensitive! Capital letters matter!</li>
+                        </ul>
+                    </li>
+                    <li><strong>Check file extension matches:</strong>
+                        <ul>
+                            <li>If HTML says <code>.jpg</code>, file must be <code>.jpg</code> (not <code>.png</code>)</li>
+                        </ul>
+                    </li>
+                    <li><strong>Check file path is correct:</strong>
+                        <ul>
+                            <li>If image is in <code>/images</code> folder, HTML should say: <code>images/filename.jpg</code></li>
+                            <li>No <code>/</code> at the beginning: <code>images/file.jpg</code> NOT <code>/images/file.jpg</code></li>
+                        </ul>
+                    </li>
+                    <li><strong>Verify image was uploaded:</strong> Go to your images folder on GitHub and check it's there</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="problem-solution">
+            <h4>❌ Problem: My website layout is broken / looks weird</h4>
+            <div class="solution">
+                <h5>✅ Possible causes & solutions:</h5>
+                <ol>
+                    <li><strong>Missing or extra HTML tag:</strong>
+                        <ul>
+                            <li>Did you accidentally delete a <code>&lt;div&gt;</code> or <code>&lt;/div&gt;</code>?</li>
+                            <li>Every opening tag needs a closing tag</li>
+                            <li>Use GitHub's version history to restore (see next section)</li>
+                        </ul>
+                    </li>
+                    <li><strong>CSS was changed incorrectly:</strong>
+                        <ul>
+                            <li>Did you edit the CSS file?</li>
+                            <li>Try reverting the CSS changes</li>
+                        </ul>
+                    </li>
+                    <li><strong>File encoding issue:</strong>
+                        <ul>
+                            <li>When copying code, sometimes special characters break</li>
+                            <li>Re-type instead of copy-pasting</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="problem-solution">
+            <h4>❌ Problem: My PDF/document download link doesn't work</h4>
+            <div class="solution">
+                <h5>✅ Solutions to try:</h5>
+                <ol>
+                    <li><strong>Check link path:</strong>
+                        <ul>
+                            <li>If file is in <code>/files</code> folder: <code>href="files/resume.pdf"</code></li>
+                            <li>If file is in root: <code>href="resume.pdf"</code></li>
+                        </ul>
+                    </li>
+                    <li><strong>Check filename matches:</strong> Same rules as images—case-sensitive, exact match</li>
+                    <li><strong>Verify file was uploaded:</strong> Check the folder on GitHub</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- UNDOING MISTAKES -->
+        <div class="step-header">
+            <h2>Undoing Mistakes: Using Version History</h2>
+        </div>
+
+        <p>Made a mistake and want to go back to a previous version? GitHub saves every version!</p>
+
+        <h3>Step 27: Viewing Version History</h3>
+        <ol>
+            <li>Go to your repository homepage</li>
+            <li>Click on the file you want to restore (e.g., <code>index.html</code>)</li>
+            <li>Click the <strong>"History"</strong> button (or clock icon) at the top right</li>
+            <li>You'll see a list of all commits (saves) made to this file</li>
+            <li>Each commit shows:
+                <ul>
+                    <li>The commit message you wrote</li>
+                    <li>When it was saved</li>
+                    <li>Who saved it (you)</li>
+                </ul>
+            </li>
+        </ol>
+
+        <h3>Step 28: Restoring a Previous Version</h3>
+        <ol>
+            <li>In the History view, find the version you want to go back to</li>
+            <li>Click on that commit</li>
+            <li>You'll see the file as it was at that point in time</li>
+            <li>Click the <strong>"View file"</strong> button</li>
+            <li>Copy all the code from that version</li>
+            <li>Go back to the current version of the file</li>
+            <li>Click edit (pencil icon)</li>
+            <li>Select all current code (<code>Ctrl+A</code> or <code>Cmd+A</code>)</li>
+            <li>Delete it and paste the old version</li>
+            <li>Commit with a message like "Restored previous version"</li>
+        </ol>
+
+        <div class="tip">
+            <strong>✨ Pro Tip:</strong> This is why committing frequently with clear messages is important! You can easily find and restore exactly the version you want.
+        </div>
+
+        <!-- FILE ORGANIZATION -->
+        <div class="step-header">
+            <h2>File Organization Best Practices</h2>
+        </div>
+
+        <h3>Good File Naming Rules:</h3>
+        <ul>
+            <li><strong>Use lowercase:</strong> <code>my-file.jpg</code> not <code>My-File.JPG</code></li>
+            <li><strong>Use hyphens instead of spaces:</strong> <code>project-image.png</code> not <code>project image.png</code></li>
+            <li><strong>Be descriptive but concise:</strong> <code>profile-photo.jpg</code> not <code>img123.jpg</code></li>
+            <li><strong>No special characters:</strong> Only letters, numbers, hyphens, underscores</li>
+        </ul>
+
+        <div class="note">
+            <strong>💡 Why these rules?</strong>
+            <ul style="margin-top: 10px;">
+                <li>Some servers are case-sensitive</li>
+                <li>Spaces in URLs become <code>%20</code> which looks messy</li>
+                <li>Special characters can break links</li>
+            </ul>
+        </div>
+
+        <h3>Folder Structure Best Practices:</h3>
+        <pre><code>your-repository/
+├── index.html           (homepage)
+├── about.html           (other pages)
+├── projects.html
+├── style.css            (or in a /css folder)
+├── images/              (all images)
+│   ├── profile.jpg
+│   ├── project1.png
+│   └── project2.png
+└── files/               (documents)
+    ├── resume.pdf
+    └── portfolio.pdf</code></pre>
+
+        <div class="tip">
+            <strong>✨ Keep It Clean:</strong> Don't upload random files, old versions, or test files to your repository. Keep only what you need for your website!
+        </div>
+
+        <!-- MAINTENANCE -->
+        <div class="step-header">
+            <h2>Regular Website Maintenance</h2>
+        </div>
+
+        <h3>Monthly Maintenance Checklist:</h3>
+        <div class="checklist">
+            <h4>Regular Tasks:</h4>
+            <ul>
+                <li>Test all links (navigation, external links, downloads)</li>
+                <li>Update your resume/CV PDF if you have new accomplishments</li>
+                <li>Add new projects to your portfolio</li>
+                <li>Check website on mobile devices</li>
+                <li>Update your "About" section if your role/situation changed</li>
+                <li>Review and update social media links</li>
+                <li>Check for broken images</li>
+            </ul>
+        </div>
+
+        <h3>Quarterly Review Checklist:</h3>
+        <div class="checklist">
+            <h4>Deeper Review:</h4>
+            <ul>
+                <li>Remove outdated projects or information</li>
+                <li>Update skills section with new skills learned</li>
+                <li>Refresh design/colors if needed</li>
+                <li>Update copyright year in footer</li>
+                <li>Test website speed and loading times</li>
+                <li>Review analytics (if you've added Google Analytics)</li>
+            </ul>
+        </div>
+
+        <div class="note">
+            <strong>💡 Why maintenance matters:</strong> An outdated portfolio site can hurt more than help! Keep it current to make the best impression on potential employers, clients, or collaborators.
+        </div>
+
+        <!-- GETTING HELP -->
+        <div class="step-header">
+            <h2>Getting Help When You're Stuck</h2>
+        </div>
+
+        <h3>Where to Find Help:</h3>
+
+        <p><strong>1. GitHub Community:</strong></p>
+        <ul>
+            <li><a href="https://github.community/" target="_blank">GitHub Community Forum</a></li>
+            <li>Post your question with:
+                <ul>
+                    <li>What you're trying to do</li>
+                    <li>What you've tried</li>
+                    <li>Error messages or screenshots</li>
+                    <li>Link to your repository (if public)</li>
+                </ul>
+            </li>
+        </ul>
+
+        <p><strong>2. Stack Overflow:</strong></p>
+        <ul>
+            <li><a href="https://stackoverflow.com" target="_blank">Stack Overflow</a></li>
+            <li>Search first—your question might already be answered!</li>
+            <li>Use tags like <code>[github-pages]</code>, <code>[html]</code>, <code>[css]</code></li>
+        </ul>
+
+        <p><strong>3. GitHub Pages Documentation:</strong></p>
+        <ul>
+            <li><a href="https://docs.github.com/en/pages" target="_blank">Official GitHub Pages Docs</a></li>
+            <li>Comprehensive guides and troubleshooting</li>
+        </ul>
+
+        <p><strong>4. Web Development Resources:</strong></p>
+        <ul>
+            <li><a href="https://www.w3schools.com" target="_blank">W3Schools</a> — HTML/CSS tutorials and references</li>
+            <li><a href="https://developer.mozilla.org/" target="_blank">MDN Web Docs</a> — Comprehensive web development documentation</li>
+            <li><a href="https://www.freecodecamp.org" target="_blank">freeCodeCamp</a> — Free coding courses</li>
+        </ul>
+
+        <h3>How to Ask Good Questions:</h3>
+        <div class="tip">
+            <strong>✨ Include these details:</strong>
+            <ol style="margin-top: 10px;">
+                <li><strong>What you're trying to accomplish:</strong> "I want to change my navbar color"</li>
+                <li><strong>What you've tried:</strong> "I edited the CSS file and changed background-color"</li>
+                <li><strong>What's happening instead:</strong> "The color didn't change"</li>
+                <li><strong>Any error messages:</strong> Screenshots of errors or console messages</li>
+                <li><strong>Your code:</strong> Share the relevant code snippet (use code blocks)</li>
+            </ol>
+        </div>
+
+        <!-- BACKUP -->
+        <div class="step-header">
+            <h2>Backing Up Your Website</h2>
+        </div>
+
+        <p>GitHub automatically saves all versions, but you can also create local backups:</p>
+
+        <h3>Downloading Your Repository:</h3>
+        <ol>
+            <li>Go to your repository homepage</li>
+            <li>Click the green <strong>"Code"</strong> button</li>
+            <li>Select <strong>"Download ZIP"</strong></li>
+            <li>Save the ZIP file to your computer</li>
+            <li>Extract it to have a local copy of all your files</li>
+        </ol>
+
+        <div class="note">
+            <strong>💡 When to download a backup:</strong>
+            <ul style="margin-top: 10px;">
+                <li>Before making major changes</li>
+                <li>Every few months for archival purposes</li>
+                <li>Before changing templates</li>
+            </ul>
+        </div>
+
+        <hr style="margin: 40px 0; border: none; border-top: 1px solid #e1e1e1;">
+
+        <div class="success" style="padding: 30px;">
+            <h2 style="margin: 0 0 15px 0; padding: 0; border: none;">🎊 You're Now a GitHub Pages Pro!</h2>
+            <p style="margin: 0;">You've completed the entire tutorial series and learned:</p>
+            <ul style="margin: 15px 0 0 20px;">
+                <li>✅ Setting up and publishing your website</li>
+                <li>✅ Editing HTML content and structure</li>
+                <li>✅ Customizing with CSS, images, and links</li>
+                <li>✅ Troubleshooting common problems</li>
+                <li>✅ Maintaining your site long-term</li>
+            </ul>
+            <p style="margin-top: 20px;"><strong>You now have the skills to manage and grow your website independently!</strong></p>
+        </div>
+
+        <div class="note">
+            <strong>📝 Final Tips:</strong>
+            <ul style="margin-top: 10px;">
+                <li>Update your site regularly—don't let it go stale</li>
+                <li>Share your website URL on your resume and LinkedIn</li>
+                <li>Keep learning—explore more HTML/CSS tutorials to add new features</li>
+                <li>Don't be afraid to experiment! You can always undo changes</li>
+            </ul>
+        </div>
+
+        <div class="navigation">
+            <a href="customization.html" class="nav-button secondary">← Back to Part 3: Customization</a>
+            <a href="reference.html" class="nav-button">View Reference Guide →</a>
+        </div>
+    </div>
+
+    <div class="meite-note" style="background-color: #13294b; color: white; padding: 25px 20px; text-align: center; font-size: 0.95em; border-top: 4px solid #4b9cd3; margin-top: 60px;">
+        <p style="color: white; margin: 0;">This tutorial was created for students in the <strong>Master of Arts in Educational Innovation, Technology, and Entrepreneurship (MEITE)</strong> program at UNC Chapel Hill School of Education.</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reference Guide - GitHub Pages Tutorial</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Acumin Pro", Helvetica, Arial, sans-serif; line-height: 1.6; color: #13294b; background-color: #ffffff; }
+
+        h1, h2, h3 {
+            font-family: Georgia, "Le Monde Livre", serif;
+        }
+
+        .header { background: linear-gradient(135deg, #4b9cd3 0%, #13294b 100%);
+            border-bottom: 4px solid #4b9cd3; color: white; padding: 40px 20px; text-align: center; }
+        .header h1 { font-size: 2.5em; margin-bottom: 0.3em; }
+        .breadcrumb { background-color: #f8f9fa; padding: 15px 20px; border-bottom: 1px solid #e1e1e1; }
+        .breadcrumb a { color: #4b9cd3; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .breadcrumb span { color: #767676; margin: 0 5px; }
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        h2 { font-size: 1.8em; font-weight: 600; margin-top: 2em; margin-bottom: 1em; padding-bottom: 0.3em; border-bottom: 2px solid #e1e1e1; color: #13294b; }
+        h3 { font-size: 1.4em; font-weight: 600; margin-top: 1.5em; margin-bottom: 0.8em; color: #13294b; }
+        p { margin-bottom: 1em; font-size: 16px; }
+        ul { margin-left: 2em; margin-bottom: 1.5em; }
+        li { margin-bottom: 0.8em; line-height: 1.8; }
+        .glossary-term { background-color: #f8f9fa; padding: 15px; margin: 10px 0; border-left: 3px solid #4b9cd3; border-radius: 3px; }
+        .glossary-term strong { color: #4b9cd3; font-size: 1.1em; }
+        .shortcut-table { width: 100%; border-collapse: collapse; margin: 20px 0; background-color: white; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .shortcut-table th { background-color: #4b9cd3; color: white; padding: 12px; text-align: left; font-weight: 600; }
+        .shortcut-table td { padding: 12px; border-bottom: 1px solid #e1e1e1; }
+        .shortcut-table tr:hover { background-color: #f8f9fa; }
+        code { background-color: #f8f9fa; padding: 3px 6px; border-radius: 3px; font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.9em; color: #e83e8c; }
+        .faq-item { background-color: #f8f9fa; border: 1px solid #dee2e6; border-radius: 6px; padding: 20px; margin: 15px 0; }
+        .faq-item h4 { color: #4b9cd3; margin-bottom: 10px; }
+        .checklist { background-color: #d4edda; border-left: 4px solid #28a745; padding: 20px; border-radius: 4px; margin: 20px 0; }
+        .checklist h3 { margin-top: 0; color: #28a745; }
+        .checklist ul { list-style: none; padding-left: 0; margin: 0; }
+        .checklist li { padding: 8px 0; }
+        .checklist li:before { content: "☐ "; font-size: 1.2em; margin-right: 8px; color: #28a745; }
+        .code-example { background-color: #f8f9fa; border: 1px solid #e1e1e1; border-radius: 6px; padding: 15px; margin: 15px 0; }
+        .code-example-header { font-weight: 600; color: #4b9cd3; margin-bottom: 10px; }
+        .navigation { display: flex; justify-content: space-between; margin-top: 60px; padding-top: 30px; border-top: 2px solid #e1e1e1; }
+        .nav-button { display: inline-block; padding: 12px 24px; background-color: #4b9cd3; color: white; text-decoration: none; border-radius: 6px; font-weight: 500; transition: background-color 0.3s; }
+        .nav-button:hover { background-color: #007fae; }
+        .nav-button.secondary { background-color: #6c757d; }
+        .nav-button.secondary:hover { background-color: #5a6268; }
+        a { color: #4b9cd3; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        strong { font-weight: 600; }
+        .tip { background-color: #d1ecf1; border-left: 4px solid #17a2b8; padding: 15px; margin: 20px 0; border-radius: 3px; }
+        .tip strong { display: block; margin-bottom: 5px; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Reference Guide</h1>
+        <p>Quick Reference & Helpful Resources</p>
+    </div>
+
+    <div class="breadcrumb">
+        <a href="index.html">← Back to Tutorial Home</a>
+        <span>|</span>
+        <strong>Reference Guide</strong>
+    </div>
+
+    <div class="container">
+        <p style="font-size: 1.1em; color: #767676;">This reference guide contains all the essential information you need in one place: definitions, keyboard shortcuts, common code examples, and frequently asked questions.</p>
+
+        <!-- GLOSSARY -->
+        <h2>Glossary of Terms</h2>
+
+        <div class="glossary-term">
+            <strong>Repository (Repo)</strong>
+            <p>A folder/storage space on GitHub that contains all the files for your project. Your website files live in your repository.</p>
+        </div>
+
+        <div class="glossary-term">
+            <strong>Commit</strong>
+            <p>Saving changes to your files in GitHub. Each commit creates a snapshot that you can return to later. Think of it like clicking "Save Version" in a document.</p>
+        </div>
+
+        <div class="glossary-term">
+            <strong>GitHub Pages</strong>
+            <p>GitHub's free web hosting service that turns your repository files into a live website accessible on the internet.</p>
+        </div>
+
+        <div class="glossary-term">
+            <strong>HTML (HyperText Markup Language)</strong>
+            <p>The code language that defines the structure and content of web pages. HTML tells the browser what to display (headings, paragraphs, images, links, etc.).</p>
+        </div>
+
+        <div class="glossary-term">
+            <strong>CSS (Cascading Style Sheets)</strong>
+            <p>The code language that controls the visual design and appearance of web pages. CSS defines colors, fonts, spacing, layouts, and all styling.</p>
+        </div>
+
+        <div class="glossary-term">
+            <strong>JavaScript (JS)</strong>
+            <p>A programming language that adds interactivity and dynamic features to websites (animations, form validation, interactive elements).</p>
+        </div>
+
+        <div class="glossary-term">
+            <strong>Branch</strong>
+            <p>A version of your repository. "Main" (or "master") is the primary branch that contains your published website code.</p>
+        </div>
+
+        <div class="glossary-term">
+            <strong>Frontend</strong>
+            <p>The part of a website that users see and interact with (the visual interface, buttons, text, images). Made with HTML, CSS, and JavaScript.</p>
+        </div>
+
+        <div class="glossary-term">
+            <strong>Backend</strong>
+            <p>The behind-the-scenes server logic that powers a website (databases, user authentication, etc.). Not needed for basic GitHub Pages sites.</p>
+        </div>
+
+        <div class="glossary-term">
+            <strong>URL (Uniform Resource Locator)</strong>
+            <p>The web address of your website or page. Example: <code>https://username.github.io/repository-name/</code></p>
+        </div>
+
+        <div class="glossary-term">
+            <strong>Cache</strong>
+            <p>Temporary storage where browsers save copies of websites to load them faster. Sometimes you need to clear cache to see the latest changes.</p>
+        </div>
+
+        <div class="glossary-term">
+            <strong>Deploy / Deployment</strong>
+            <p>The process of making your code changes live on the internet. GitHub Pages automatically deploys your site when you commit changes.</p>
+        </div>
+
+        <div class="glossary-term">
+            <strong>SEO (Search Engine Optimization)</strong>
+            <p>Techniques to help search engines (like Google) find and rank your website. Good descriptions, titles, and content help with SEO.</p>
+        </div>
+
+        <div class="glossary-term">
+            <strong>Markdown (.md)</strong>
+            <p>A simple text formatting language used for documentation. README.md files use Markdown to display formatted text on GitHub.</p>
+        </div>
+
+        <div class="glossary-term">
+            <strong>Clone</strong>
+            <p>Downloading a complete copy of a repository to your local computer. Not required for basic GitHub Pages editing (you can edit directly on GitHub).</p>
+        </div>
+
+        <!-- KEYBOARD SHORTCUTS -->
+        <h2>Keyboard Shortcuts</h2>
+
+        <h3>Browser Shortcuts</h3>
+        <table class="shortcut-table">
+            <thead>
+                <tr>
+                    <th>Action</th>
+                    <th>Windows/Linux</th>
+                    <th>Mac</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Hard Refresh (clear cache)</td>
+                    <td><code>Ctrl + Shift + R</code></td>
+                    <td><code>Cmd + Shift + R</code></td>
+                </tr>
+                <tr>
+                    <td>Regular Refresh</td>
+                    <td><code>F5</code> or <code>Ctrl + R</code></td>
+                    <td><code>Cmd + R</code></td>
+                </tr>
+                <tr>
+                    <td>Open Incognito/Private Window</td>
+                    <td><code>Ctrl + Shift + N</code></td>
+                    <td><code>Cmd + Shift + N</code></td>
+                </tr>
+                <tr>
+                    <td>New Tab</td>
+                    <td><code>Ctrl + T</code></td>
+                    <td><code>Cmd + T</code></td>
+                </tr>
+                <tr>
+                    <td>Close Tab</td>
+                    <td><code>Ctrl + W</code></td>
+                    <td><code>Cmd + W</code></td>
+                </tr>
+                <tr>
+                    <td>Find on Page</td>
+                    <td><code>Ctrl + F</code></td>
+                    <td><code>Cmd + F</code></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Text Editing Shortcuts</h3>
+        <table class="shortcut-table">
+            <thead>
+                <tr>
+                    <th>Action</th>
+                    <th>Windows/Linux</th>
+                    <th>Mac</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Select All</td>
+                    <td><code>Ctrl + A</code></td>
+                    <td><code>Cmd + A</code></td>
+                </tr>
+                <tr>
+                    <td>Copy</td>
+                    <td><code>Ctrl + C</code></td>
+                    <td><code>Cmd + C</code></td>
+                </tr>
+                <tr>
+                    <td>Paste</td>
+                    <td><code>Ctrl + V</code></td>
+                    <td><code>Cmd + V</code></td>
+                </tr>
+                <tr>
+                    <td>Cut</td>
+                    <td><code>Ctrl + X</code></td>
+                    <td><code>Cmd + X</code></td>
+                </tr>
+                <tr>
+                    <td>Undo</td>
+                    <td><code>Ctrl + Z</code></td>
+                    <td><code>Cmd + Z</code></td>
+                </tr>
+                <tr>
+                    <td>Redo</td>
+                    <td><code>Ctrl + Y</code></td>
+                    <td><code>Cmd + Shift + Z</code></td>
+                </tr>
+                <tr>
+                    <td>Save</td>
+                    <td><code>Ctrl + S</code></td>
+                    <td><code>Cmd + S</code></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- COMMON CODE EXAMPLES -->
+        <h2>Common Code Examples</h2>
+
+        <h3>HTML Examples</h3>
+
+        <div class="code-example">
+            <div class="code-example-header">Creating a Link</div>
+            <pre><code>&lt;!-- Internal page link --&gt;
+&lt;a href="#about"&gt;About Me&lt;/a&gt;
+
+&lt;!-- Link to another page --&gt;
+&lt;a href="projects.html"&gt;My Projects&lt;/a&gt;
+
+&lt;!-- External link (opens in new tab) --&gt;
+&lt;a href="https://linkedin.com/in/yourname" target="_blank"&gt;LinkedIn&lt;/a&gt;</code></pre>
+        </div>
+
+        <div class="code-example">
+            <div class="code-example-header">Adding an Image</div>
+            <pre><code>&lt;img src="images/photo.jpg" alt="Description of image"&gt;
+
+&lt;!-- Image with link --&gt;
+&lt;a href="project-details.html"&gt;
+    &lt;img src="images/project1.png" alt="Project screenshot"&gt;
+&lt;/a&gt;</code></pre>
+        </div>
+
+        <div class="code-example">
+            <div class="code-example-header">Text Formatting</div>
+            <pre><code>&lt;h1&gt;Main Heading&lt;/h1&gt;
+&lt;h2&gt;Subheading&lt;/h2&gt;
+&lt;h3&gt;Smaller Heading&lt;/h3&gt;
+
+&lt;p&gt;This is a paragraph of text.&lt;/p&gt;
+
+&lt;strong&gt;Bold text&lt;/strong&gt;
+&lt;em&gt;Italic text&lt;/em&gt;
+
+&lt;br&gt; &lt;!-- Line break --&gt;</code></pre>
+        </div>
+
+        <div class="code-example">
+            <div class="code-example-header">Lists</div>
+            <pre><code>&lt;!-- Unordered list (bullets) --&gt;
+&lt;ul&gt;
+    &lt;li&gt;First item&lt;/li&gt;
+    &lt;li&gt;Second item&lt;/li&gt;
+    &lt;li&gt;Third item&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- Ordered list (numbers) --&gt;
+&lt;ol&gt;
+    &lt;li&gt;Step one&lt;/li&gt;
+    &lt;li&gt;Step two&lt;/li&gt;
+    &lt;li&gt;Step three&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+        </div>
+
+        <div class="code-example">
+            <div class="code-example-header">Button/Download Link</div>
+            <pre><code>&lt;!-- Button-styled link --&gt;
+&lt;a href="#contact" class="btn"&gt;Contact Me&lt;/a&gt;
+
+&lt;!-- Download button --&gt;
+&lt;a href="files/resume.pdf" download class="btn"&gt;Download Resume&lt;/a&gt;</code></pre>
+        </div>
+
+        <h3>CSS Examples</h3>
+
+        <div class="code-example">
+            <div class="code-example-header">Changing Colors</div>
+            <pre><code>/* Background colors */
+body {
+    background-color: #ffffff;
+}
+
+        h1, h2, h3 {
+            font-family: Georgia, "Le Monde Livre", serif;
+        }
+
+
+.header {
+    background-color: #3498db;
+}
+
+/* Text colors */
+h1 {
+    color: #2c3e50;
+}
+
+p {
+    color: #34495e;
+}
+
+/* Link colors */
+a {
+    color: #3498db;
+}
+
+a:hover {
+    color: #2980b9;  /* Color when hovering over link */
+}</code></pre>
+        </div>
+
+        <div class="code-example">
+            <div class="code-example-header">Changing Fonts</div>
+            <pre><code>/* Font family */
+body {
+    font-family: Arial, sans-serif;
+}
+
+        h1, h2, h3 {
+            font-family: Georgia, "Le Monde Livre", serif;
+        }
+
+
+/* Font size */
+h1 {
+    font-size: 2.5em;
+}
+
+p {
+    font-size: 16px;
+}
+
+/* Font weight */
+strong {
+    font-weight: 600;  /* or 700 for bolder */
+}</code></pre>
+        </div>
+
+        <div class="code-example">
+            <div class="code-example-header">Spacing</div>
+            <pre><code>/* Margin (space outside element) */
+p {
+    margin-bottom: 20px;
+}
+
+/* Padding (space inside element) */
+.box {
+    padding: 20px;
+}
+
+/* Specific sides */
+div {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+}</code></pre>
+        </div>
+
+        <!-- PRE-PUBLISHING CHECKLIST -->
+        <div class="checklist">
+            <h3>✅ Pre-Publishing Checklist</h3>
+            <p>Before sharing your website, check these items:</p>
+            <ul>
+                <li>All text is spell-checked and proofread</li>
+                <li>Your name and contact information are correct</li>
+                <li>All images load properly (no broken images)</li>
+                <li>All links work (test every single one!)</li>
+                <li>Download links work (test resume PDF, etc.)</li>
+                <li>Social media links go to correct profiles</li>
+                <li>Website works on mobile phone</li>
+                <li>Website works in different browsers (Chrome, Firefox, Safari)</li>
+                <li>Colors and fonts are consistent throughout</li>
+                <li>No placeholder text remains (like "Lorem ipsum")</li>
+                <li>Copyright year is current (if you have a footer)</li>
+                <li>SEO: Page title and meta description are set</li>
+            </ul>
+        </div>
+
+        <!-- FAQ -->
+        <h2>Frequently Asked Questions (FAQ)</h2>
+
+        <div class="faq-item">
+            <h4>Q: How long does it take for changes to appear on my live website?</h4>
+            <p><strong>A:</strong> Typically 1-3 minutes, sometimes up to 5-10 minutes during high traffic times. Always wait at least 2-3 minutes before worrying that something is broken.</p>
+        </div>
+
+        <div class="faq-item">
+            <h4>Q: Can I use a custom domain name (like www.myname.com)?</h4>
+            <p><strong>A:</strong> Yes! GitHub Pages supports custom domains. You'll need to purchase a domain from a registrar (like Namecheap, Google Domains) and configure it in your repository Settings → Pages. There are many tutorials available for this.</p>
+        </div>
+
+        <div class="faq-item">
+            <h4>Q: Is my website really free? Are there any hidden costs?</h4>
+            <p><strong>A:</strong> Yes, it's completely free! GitHub Pages is a free service. The only cost would be if you choose to buy a custom domain name (optional).</p>
+        </div>
+
+        <div class="faq-item">
+            <h4>Q: Can I password-protect my website?</h4>
+            <p><strong>A:</strong> Not with basic GitHub Pages. GitHub Pages sites are always public. If you need password protection, you'd need to use a different hosting service or add authentication through external services.</p>
+        </div>
+
+        <div class="faq-item">
+            <h4>Q: How do I add Google Analytics to track visitors?</h4>
+            <p><strong>A:</strong> Sign up for Google Analytics, get your tracking code, and paste it in the <code>&lt;head&gt;</code> section of your HTML files. Many tutorials are available online for detailed steps.</p>
+        </div>
+
+        <div class="faq-item">
+            <h4>Q: Can I add a contact form that sends me emails?</h4>
+            <p><strong>A:</strong> GitHub Pages doesn't support backend processing, so simple HTML forms won't work. You can use third-party services like Formspree, Google Forms (embedded), or Netlify Forms.</p>
+        </div>
+
+        <div class="faq-item">
+            <h4>Q: What if I want to start over completely?</h4>
+            <p><strong>A:</strong> You can delete your repository and create a new one. Go to Settings → General → Danger Zone → Delete this repository. But remember, you'll lose all your work!</p>
+        </div>
+
+        <div class="faq-item">
+            <h4>Q: Can I have multiple websites on GitHub Pages?</h4>
+            <p><strong>A:</strong> Yes! You can have one site per repository. Create different repositories for different websites. Each will have its own URL: <code>username.github.io/repo-name/</code></p>
+        </div>
+
+        <div class="faq-item">
+            <h4>Q: Do I need to know coding to maintain my website?</h4>
+            <p><strong>A:</strong> Basic editing doesn't require deep coding knowledge—just follow the patterns you see in your template. For more advanced customization, learning HTML/CSS basics (free courses available online) is helpful.</p>
+        </div>
+
+        <div class="faq-item">
+            <h4>Q: How do I make my website show up in Google search results?</h4>
+            <p><strong>A:</strong> Write good descriptions and titles, use relevant keywords, add a meta description tag, create quality content, and be patient—it takes time for Google to index new sites. You can also submit your site to Google Search Console.</p>
+        </div>
+
+        <div class="faq-item">
+            <h4>Q: What's the difference between <code>index.html</code> and other HTML files?</h4>
+            <p><strong>A:</strong> <code>index.html</code> is special—it's the default homepage that loads when someone visits your root URL. Other HTML files need to be accessed directly (like <code>yoursite.com/about.html</code>).</p>
+        </div>
+
+        <div class="faq-item">
+            <h4>Q: Can I edit my website from my phone?</h4>
+            <p><strong>A:</strong> Yes! You can edit files directly on GitHub.com from a mobile browser. It's not the most comfortable experience, but it works for quick edits.</p>
+        </div>
+
+        <!-- HELPFUL RESOURCES -->
+        <h2>Helpful Resources</h2>
+
+        <h3>Learning Resources:</h3>
+        <ul>
+            <li><strong><a href="https://www.w3schools.com" target="_blank">W3Schools</a></strong> — HTML, CSS, JavaScript tutorials and references</li>
+            <li><strong><a href="https://developer.mozilla.org/" target="_blank">MDN Web Docs</a></strong> — Comprehensive web development documentation</li>
+            <li><strong><a href="https://www.freecodecamp.org" target="_blank">freeCodeCamp</a></strong> — Free coding courses and certifications</li>
+            <li><strong><a href="https://www.codecademy.com" target="_blank">Codecademy</a></strong> — Interactive coding lessons</li>
+        </ul>
+
+        <h3>Tools:</h3>
+        <ul>
+            <li><strong><a href="https://colorpicker.me" target="_blank">ColorPicker.me</a></strong> — Find color codes for your website</li>
+            <li><strong><a href="https://coolors.co" target="_blank">Coolors.co</a></strong> — Generate color palettes</li>
+            <li><strong><a href="https://fonts.google.com" target="_blank">Google Fonts</a></strong> — Free fonts for your website</li>
+            <li><strong><a href="https://tinypng.com" target="_blank">TinyPNG</a></strong> — Compress images</li>
+            <li><strong><a href="https://squoosh.app" target="_blank">Squoosh</a></strong> — Image optimization tool</li>
+            <li><strong><a href="https://unsplash.com" target="_blank">Unsplash</a></strong> — Free high-quality photos</li>
+        </ul>
+
+        <h3>GitHub Resources:</h3>
+        <ul>
+            <li><strong><a href="https://docs.github.com/en/pages" target="_blank">GitHub Pages Documentation</a></strong> — Official docs</li>
+            <li><strong><a href="https://github.community/" target="_blank">GitHub Community Forum</a></strong> — Get help from others</li>
+            <li><strong><a href="https://docs.github.com/en/get-started" target="_blank">GitHub Getting Started Guide</a></strong> — Learn more about GitHub</li>
+        </ul>
+
+        <div class="tip">
+            <strong>✨ Pro Tip:</strong> Bookmark this reference guide! You'll want to come back to it as you maintain and grow your website.
+        </div>
+
+        <hr style="margin: 40px 0; border: none; border-top: 1px solid #e1e1e1;">
+
+        <div style="text-align: center; padding: 40px 20px; background-color: #f8f9fa; border-radius: 8px;">
+            <h2 style="margin-bottom: 20px; color: #13294b;">🎉 Congratulations!</h2>
+            <p style="font-size: 1.1em; margin-bottom: 15px;">You've completed the entire GitHub Pages tutorial and have all the knowledge you need to build, maintain, and grow your website.</p>
+            <p style="font-size: 1.1em; margin-bottom: 25px;"><strong>Now go create something amazing!</strong></p>
+            <a href="index.html" class="nav-button">← Back to Tutorial Home</a>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px; padding-top: 30px; border-top: 1px solid #e1e1e1; color: #767676; font-size: 0.9em;">
+            <p>Tutorial created with ❤️ for aspiring web developers</p>
+            <p style="margin-top: 10px;">Last updated: November 2025</p>
+        </div>
+    </div>
+
+    <div class="meite-note" style="background-color: #13294b; color: white; padding: 25px 20px; text-align: center; font-size: 0.95em; border-top: 4px solid #4b9cd3; margin-top: 60px;">
+        <p style="color: white; margin: 0;">This tutorial was created for students in the <strong>Master of Arts in Educational Innovation, Technology, and Entrepreneurship (MEITE)</strong> program at UNC Chapel Hill School of Education.</p>
+    </div>
+</body>
+</html>

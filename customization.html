@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 3: Customization - GitHub Pages Tutorial</title>
+    <link rel="stylesheet" href="data:text/css;base64,KiB7CiAgICBtYXJnaW46IDA7CiAgICBwYWRkaW5nOiAwOwogICAgYm94LXNpemluZzogYm9yZGVyLWJveDsKfQoKYm9keSB7CiAgICBmb250LWZhbWlseTogLWFwcGxlLXN5c3RlbSwgQmxpbmtNYWNTeXN0ZW1Gb250LCAiU2Vnb2UgVUkiLCBIZWx2ZXRpY2EsIEFyaWFsLCBzYW5zLXNlcmlmOwogICAgbGluZS1oZWlnaHQ6IDEuNjsKICAgIGNvbG9yOiAjMjQyOTJlOwogICAgYmFja2dyb3VuZC1jb2xvcjogI2ZmZmZmZjsKfQ==">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Acumin Pro", Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #13294b;
+            background-color: #ffffff;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #4b9cd3 0%, #13294b 100%);
+            border-bottom: 4px solid #4b9cd3;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        .header h1 { font-size: 2.5em; margin-bottom: 0.3em; }
+        
+        .breadcrumb {
+            background-color: #f8f9fa;
+            padding: 15px 20px;
+            border-bottom: 1px solid #e1e1e1;
+        }
+        
+        .breadcrumb a { color: #4b9cd3; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .breadcrumb span { color: #767676; margin: 0 5px; }
+        
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        
+        h2 {
+            font-size: 1.8em;
+            font-weight: 600;
+            margin-top: 2em;
+            margin-bottom: 1em;
+            padding-bottom: 0.3em;
+            border-bottom: 2px solid #e1e1e1;
+            color: #13294b;
+        }
+        
+        h3 {
+            font-size: 1.4em;
+            font-weight: 600;
+            margin-top: 1.5em;
+            margin-bottom: 0.8em;
+            color: #13294b;
+        }
+        
+        p { margin-bottom: 1em; font-size: 16px; }
+        ol, ul { margin-left: 2em; margin-bottom: 1.5em; }
+        li { margin-bottom: 0.8em; line-height: 1.8; }
+        
+        .step-header {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-left: 4px solid #4b9cd3;
+            margin: 30px 0 20px 0;
+            border-radius: 4px;
+        }
+        
+        .step-header h2 { margin: 0; padding: 0; border: none; font-size: 1.6em; }
+        
+        .note, .important, .tip, .success, .warning {
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 3px;
+        }
+        
+        .note { background-color: #fff3cd; border-left: 4px solid #ffc107; }
+        .important { background-color: #f8d7da; border-left: 4px solid #dc3545; }
+        .tip { background-color: #d1ecf1; border-left: 4px solid #17a2b8; }
+        .success { background-color: #d4edda; border-left: 4px solid #28a745; }
+        .warning { background-color: #fff3cd; border-left: 4px solid #ff6b6b; }
+        
+        .note strong, .important strong, .tip strong, .success strong, .warning strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .image-placeholder {
+            background-color: #e1e1e1;
+            border: 2px dashed #959da5;
+            padding: 60px 40px;
+            text-align: center;
+            margin: 20px 0;
+            border-radius: 6px;
+            color: #767676;
+            font-style: italic;
+        }
+        
+        code {
+            background-color: #f8f9fa;
+            padding: 3px 6px;
+            border-radius: 3px;
+            font-family: "SFMono-Regular", Consolas, monospace;
+            font-size: 0.9em;
+            color: #e83e8c;
+        }
+        
+        pre {
+            background-color: #f8f9fa;
+            padding: 16px;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin: 15px 0;
+            border: 1px solid #e1e1e1;
+        }
+        
+        pre code {
+            background-color: transparent;
+            padding: 0;
+            color: #13294b;
+        }
+        
+        .code-example {
+            background-color: #ffffff;
+            border: 2px solid #4b9cd3;
+            border-radius: 6px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        
+        .code-example-header {
+            background-color: #4b9cd3;
+            color: white;
+            padding: 10px 15px;
+            font-weight: 600;
+        }
+        
+        .code-example-content { padding: 15px; }
+        
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 2px solid #e1e1e1;
+        }
+        
+        .nav-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #4b9cd3;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-button:hover { background-color: #007fae; }
+        .nav-button.secondary { background-color: #6c757d; }
+        .nav-button.secondary:hover { background-color: #5a6268; }
+        
+        a { color: #4b9cd3; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        strong { font-weight: 600; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Part 3: Advanced Customization</h1>
+        <p>Images, CSS, Navigation & More</p>
+    </div>
+
+    <div class="breadcrumb">
+        <a href="index.html">← Back to Tutorial Home</a>
+        <span>|</span>
+        <a href="setup.html">Part 1: Setup</a>
+        <span>|</span>
+        <a href="editing.html">Part 2: Editing</a>
+        <span>|</span>
+        <strong>Part 3: Customization</strong>
+    </div>
+
+    <div class="container">
+        <p style="font-size: 1.1em; color: #767676;">Ready to take your website to the next level? In this section, you'll learn how to add your own images, customize colors and fonts with CSS, update navigation links, add social media connections, and much more!</p>
+
+        <!-- IMAGES -->
+        <div class="step-header">
+            <h2>Adding and Replacing Images</h2>
+        </div>
+
+        <p>Images bring your website to life! Let's learn how to replace template images with your own photos.</p>
+
+        <h3>Understanding Image References in HTML</h3>
+        <p>In your HTML files, images are referenced like this:</p>
+
+        <div class="code-example">
+            <div class="code-example-header">Image Code Example</div>
+            <div class="code-example-content">
+                <pre><code>&lt;img src="images/profile-photo.jpg" alt="My profile picture"&gt;</code></pre>
+            </div>
+        </div>
+
+        <p><strong>What this means:</strong></p>
+        <ul>
+            <li><code>src="images/profile-photo.jpg"</code> — This tells the browser where to find the image file</li>
+            <li><code>alt="..."</code> — This is description text for accessibility (screen readers) and if image doesn't load</li>
+        </ul>
+
+        <h3>Step 14: Finding Images to Replace</h3>
+        <ol>
+            <li>Open your <code>index.html</code> (or other HTML files)</li>
+            <li>Search for <code>&lt;img</code> tags or look in sections like:
+                <ul>
+                    <li>Profile/About section (your headshot)</li>
+                    <li>Portfolio/Projects section (project screenshots)</li>
+                    <li>Header/Hero section (background images)</li>
+                </ul>
+            </li>
+            <li>Make a list of all image filenames you need to replace:
+                <ul>
+                    <li>Example: <code>profile.jpg</code>, <code>project1.png</code>, <code>project2.png</code></li>
+                </ul>
+            </li>
+        </ol>
+
+        <div class="note">
+            <strong>💡 Common Image Locations:</strong>
+            <ul style="margin-top: 10px;">
+                <li><code>images/profile.jpg</code> — Your headshot/profile photo</li>
+                <li><code>images/project1.png</code>, <code>images/project2.png</code> — Portfolio screenshots</li>
+                <li><code>images/background.jpg</code> — Header/banner background</li>
+                <li><code>images/logo.png</code> — Your personal logo or branding</li>
+            </ul>
+        </div>
+
+        <h3>Step 15: Preparing Your Images</h3>
+        <p><strong>Before uploading, prep your images properly:</strong></p>
+
+        <ol>
+            <li><strong>Rename your files</strong> to match the HTML references:
+                <ul>
+                    <li>If HTML says <code>profile.jpg</code>, name your photo <code>profile.jpg</code></li>
+                    <li>Use lowercase letters, no spaces (use hyphens instead)</li>
+                    <li>Good: <code>my-project.jpg</code></li>
+                    <li>Bad: <code>My Project.JPG</code></li>
+                </ul>
+            </li>
+            <li><strong>Check file format:</strong>
+                <ul>
+                    <li>If HTML says <code>.jpg</code>, your file must be <code>.jpg</code> (not <code>.png</code>)</li>
+                    <li>If HTML says <code>.png</code>, your file must be <code>.png</code></li>
+                    <li>Common formats: <code>.jpg</code>, <code>.jpeg</code>, <code>.png</code>, <code>.gif</code>, <code>.webp</code></li>
+                </ul>
+            </li>
+            <li><strong>Optimize file size:</strong>
+                <ul>
+                    <li>Large images slow down your website</li>
+                    <li>Aim for under 500KB per image</li>
+                    <li>Use tools like <a href="https://tinypng.com" target="_blank">TinyPNG</a> or <a href="https://squoosh.app" target="_blank">Squoosh</a> to compress</li>
+                </ul>
+            </li>
+        </ol>
+
+        <div class="important">
+            <strong>⚠️ Critical Rules:</strong>
+            <ul style="margin-top: 10px;">
+                <li>Filename in HTML and uploaded file MUST match EXACTLY</li>
+                <li>File extension (.jpg, .png) MUST match EXACTLY</li>
+                <li>Case-sensitive: <code>Profile.jpg</code> ≠ <code>profile.jpg</code></li>
+            </ul>
+        </div>
+
+        <h3>Step 16: Uploading Images to GitHub</h3>
+        <ol>
+            <li>Go to your repository homepage (<code>&lt;&gt; Code</code> tab)</li>
+            <li>In the file list, click on the <code>images</code> folder (or <code>img</code> folder)</li>
+            <li>You'll see existing template images</li>
+            <li>Look for the <strong>"Add file"</strong> button near the top right</li>
+            <li>Click it and select <strong>"Upload files"</strong></li>
+            <li>Drag and drop your prepared image files, or click "choose your files"</li>
+            <li>Add a commit message: "Added my personal images"</li>
+            <li>Click <strong>"Commit changes"</strong></li>
+        </ol>
+
+        <div class="image-placeholder">
+            📸 Screenshot: Images folder with "Add file" button highlighted
+        </div>
+
+        <div class="tip">
+            <strong>✨ Pro Tip:</strong> You can upload multiple images at once! Select all your images and drag them into the upload area together.
+        </div>
+
+        <h3>What if I Want Different Image Names?</h3>
+        <p>If you want to use your own image filenames instead of matching the template:</p>
+
+        <ol>
+            <li>Upload your image with your preferred name (e.g., <code>my-photo.jpg</code>)</li>
+            <li>Go to your HTML file and edit the image reference:
+                <div class="code-example">
+                    <div class="code-example-header">Change this:</div>
+                    <div class="code-example-content">
+                        <pre><code>&lt;img src="images/profile.jpg" alt="Profile"&gt;</code></pre>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <div class="code-example-header">To this:</div>
+                    <div class="code-example-content">
+                        <pre><code>&lt;img src="images/my-photo.jpg" alt="Profile"&gt;</code></pre>
+                    </div>
+                </div>
+            </li>
+            <li>Commit the HTML change</li>
+            <li>Wait 2-3 minutes and check your live site!</li>
+        </ol>
+
+        <div class="note">
+            <strong>💡 Easier Method:</strong> It's simpler to just rename your images to match the HTML than to edit the HTML for every image. But both methods work!
+        </div>
+
+        <!-- DOCUMENTS -->
+        <div class="step-header">
+            <h2>Adding Documents (Resume, CV, Portfolio PDFs)</h2>
+        </div>
+
+        <p>Want to make your resume downloadable on your website? Here's how!</p>
+
+        <h3>Step 17: Preparing Your Documents</h3>
+        <ol>
+            <li>Save your document as a PDF (most professional format)</li>
+            <li>Name it appropriately: <code>resume.pdf</code>, <code>cv.pdf</code>, <code>portfolio.pdf</code></li>
+            <li>Use lowercase, no spaces in filename</li>
+        </ol>
+
+        <h3>Step 18: Uploading Documents</h3>
+        <ol>
+            <li>Go to your repository homepage</li>
+            <li>Look for a folder like <code>files</code>, <code>documents</code>, or <code>assets</code></li>
+            <li>If there's no such folder, you can create one or just upload to the main directory</li>
+            <li>Click <strong>"Add file" → "Upload files"</strong></li>
+            <li>Upload your PDF</li>
+            <li>Commit changes</li>
+        </ol>
+
+        <h3>Step 19: Linking Documents in HTML</h3>
+        <p>Find or create a download link in your HTML:</p>
+
+        <div class="code-example">
+            <div class="code-example-header">Resume Download Link Example</div>
+            <div class="code-example-content">
+                <pre><code>&lt;a href="files/resume.pdf" download&gt;Download My Resume&lt;/a&gt;</code></pre>
+            </div>
+        </div>
+
+        <p><strong>Breaking this down:</strong></p>
+        <ul>
+            <li><code>href="files/resume.pdf"</code> — Path to your PDF file</li>
+            <li><code>download</code> — This attribute makes the browser download the file instead of opening it</li>
+            <li>Text between tags is what visitors see and click</li>
+        </ul>
+
+        <div class="tip">
+            <strong>✨ Make it a Button:</strong> Add <code>class="btn"</code> to make it look like a button:
+            <div class="code-example" style="margin-top: 10px;">
+                <div class="code-example-content">
+                    <pre><code>&lt;a href="files/resume.pdf" download class="btn"&gt;Download Resume&lt;/a&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- CSS EDITING -->
+        <div class="step-header">
+            <h2>Customizing Colors and Fonts (CSS Editing)</h2>
+        </div>
+
+        <p>Want to change your website's colors to match your personal brand? CSS is where the magic happens!</p>
+
+        <h3>Step 20: Finding Your CSS File</h3>
+        <ol>
+            <li>Go to your repository homepage</li>
+            <li>Look for files like:
+                <ul>
+                    <li><code>style.css</code></li>
+                    <li><code>styles.css</code></li>
+                    <li><code>main.css</code></li>
+                    <li>Or in a folder like <code>css/style.css</code></li>
+                </ul>
+            </li>
+            <li>Click on the CSS file</li>
+            <li>Click the pencil icon to edit</li>
+        </ol>
+
+        <h3>Step 21: Changing Colors</h3>
+        <p>Colors in CSS are written in different formats:</p>
+
+        <div class="code-example">
+            <div class="code-example-header">Color Format Examples</div>
+            <div class="code-example-content">
+                <pre><code>/* Hex codes (most common) */
+color: #3498db;  /* Blue */
+color: #e74c3c;  /* Red */
+
+/* RGB */
+color: rgb(52, 152, 219);  /* Blue */
+
+/* Color names */
+color: blue;
+color: red;</code></pre>
+            </div>
+        </div>
+
+        <h3>Common CSS Properties to Edit:</h3>
+
+        <p><strong>1. Background Colors:</strong></p>
+        <div class="code-example">
+            <div class="code-example-content">
+                <pre><code>body {
+    background-color: #ffffff;  /* Change to your preferred background */
+}
+
+.header {
+    background-color: #3498db;  /* Header background color */
+}</code></pre>
+            </div>
+        </div>
+
+        <p><strong>2. Text Colors:</strong></p>
+        <div class="code-example">
+            <div class="code-example-content">
+                <pre><code>h1, h2, h3 {
+    color: #2c3e50;  /* Heading colors */
+}
+
+p {
+    color: #34495e;  /* Paragraph text color */
+}
+
+a {
+    color: #3498db;  /* Link color */
+}</code></pre>
+            </div>
+        </div>
+
+        <p><strong>3. Button Colors:</strong></p>
+        <div class="code-example">
+            <div class="code-example-content">
+                <pre><code>.btn {
+    background-color: #3498db;  /* Button background */
+    color: #ffffff;  /* Button text */
+}
+
+.btn:hover {
+    background-color: #2980b9;  /* Button color when hovering */
+}</code></pre>
+            </div>
+        </div>
+
+        <div class="tip">
+            <strong>✨ Finding Colors:</strong> Use online color pickers to find your perfect colors:
+            <ul style="margin-top: 10px;">
+                <li><a href="https://colorpicker.me" target="_blank">ColorPicker.me</a></li>
+                <li><a href="https://coolors.co" target="_blank">Coolors.co</a> (color palette generator)</li>
+                <li><a href="https://htmlcolorcodes.com" target="_blank">HTML Color Codes</a></li>
+            </ul>
+        </div>
+
+        <h3>Step 22: Changing Fonts</h3>
+        <p>Want to use different fonts? Here's how:</p>
+
+        <div class="code-example">
+            <div class="code-example-header">Font Examples</div>
+            <div class="code-example-content">
+                <pre><code>/* System fonts (always work) */
+font-family: Arial, sans-serif;
+font-family: Georgia, serif;
+font-family: 'Courier New', monospace;
+
+/* Google Fonts (more options) */
+font-family: 'Roboto', sans-serif;
+font-family: 'Open Sans', sans-serif;</code></pre>
+            </div>
+        </div>
+
+        <p><strong>To use Google Fonts:</strong></p>
+        <ol>
+            <li>Go to <a href="https://fonts.google.com" target="_blank">Google Fonts</a></li>
+            <li>Choose a font you like</li>
+            <li>Click "Select this style"</li>
+            <li>Copy the <code>&lt;link&gt;</code> code provided</li>
+            <li>Paste it in the <code>&lt;head&gt;</code> section of your HTML</li>
+            <li>Update your CSS with the font-family name</li>
+        </ol>
+
+        <div class="important">
+            <strong>⚠️ Safe CSS Changes:</strong>
+            <ul style="margin-top: 10px;">
+                <li>✅ Safe to change: colors, font-family, font-size</li>
+                <li>⚠️ Be careful with: margins, padding, widths</li>
+                <li>❌ Avoid changing: display, position, flexbox properties (unless you know CSS)</li>
+            </ul>
+        </div>
+
+        <!-- NAVIGATION -->
+        <div class="step-header">
+            <h2>Editing Navigation Links</h2>
+        </div>
+
+        <p>Your navigation menu helps visitors explore your website. Let's customize it!</p>
+
+        <h3>Step 23: Understanding Navigation Code</h3>
+        <div class="code-example">
+            <div class="code-example-header">Navigation Example</div>
+            <div class="code-example-content">
+                <pre><code>&lt;nav&gt;
+    &lt;a href="#home"&gt;Home&lt;/a&gt;
+    &lt;a href="#about"&gt;About&lt;/a&gt;
+    &lt;a href="#projects"&gt;Projects&lt;/a&gt;
+    &lt;a href="#contact"&gt;Contact&lt;/a&gt;
+&lt;/nav&gt;</code></pre>
+            </div>
+        </div>
+
+        <h3>Types of Links:</h3>
+
+        <p><strong>1. Internal Page Links (one-page sites):</strong></p>
+        <div class="code-example">
+            <div class="code-example-content">
+                <pre><code>&lt;a href="#about"&gt;About&lt;/a&gt;  
+&lt;!-- Scrolls to an element with id="about" on the same page --&gt;</code></pre>
+            </div>
+        </div>
+
+        <p><strong>2. Different Page Links (multi-page sites):</strong></p>
+        <div class="code-example">
+            <div class="code-example-content">
+                <pre><code>&lt;a href="about.html"&gt;About&lt;/a&gt;  
+&lt;!-- Goes to a different HTML file --&gt;</code></pre>
+            </div>
+        </div>
+
+        <p><strong>3. External Links:</strong></p>
+        <div class="code-example">
+            <div class="code-example-content">
+                <pre><code>&lt;a href="https://linkedin.com/in/yourname" target="_blank"&gt;LinkedIn&lt;/a&gt;  
+&lt;!-- Opens external website in new tab --&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="note">
+            <strong>💡 target="_blank":</strong> This attribute makes links open in a new tab. Always use it for external links so visitors don't leave your site completely!
+        </div>
+
+        <h3>Step 24: Adding/Removing Menu Items</h3>
+
+        <p><strong>To add a new menu item:</strong></p>
+        <div class="code-example">
+            <div class="code-example-content">
+                <pre><code>&lt;nav&gt;
+    &lt;a href="#home"&gt;Home&lt;/a&gt;
+    &lt;a href="#about"&gt;About&lt;/a&gt;
+    &lt;a href="#projects"&gt;Projects&lt;/a&gt;
+    &lt;a href="#blog"&gt;Blog&lt;/a&gt;  &lt;!-- NEW ITEM --&gt;
+    &lt;a href="#contact"&gt;Contact&lt;/a&gt;
+&lt;/nav&gt;</code></pre>
+            </div>
+        </div>
+
+        <p><strong>To remove a menu item:</strong></p>
+        <p>Simply delete the entire <code>&lt;a&gt;...&lt;/a&gt;</code> line for that item.</p>
+
+        <!-- SOCIAL MEDIA -->
+        <div class="step-header">
+            <h2>Adding Social Media Links</h2>
+        </div>
+
+        <p>Connect your website to your professional social media profiles!</p>
+
+        <h3>Step 25: Finding Social Media Section</h3>
+        <p>Look in your HTML for a section that might be called:</p>
+        <ul>
+            <li>"Social Links"</li>
+            <li>"Connect" or "Find Me"</li>
+            <li>Often in the footer or contact section</li>
+        </ul>
+
+        <div class="code-example">
+            <div class="code-example-header">Social Media Links Example</div>
+            <div class="code-example-content">
+                <pre><code>&lt;div class="social-links"&gt;
+    &lt;a href="https://linkedin.com/in/yourname" target="_blank"&gt;LinkedIn&lt;/a&gt;
+    &lt;a href="https://github.com/yourusername" target="_blank"&gt;GitHub&lt;/a&gt;
+    &lt;a href="https://twitter.com/yourhandle" target="_blank"&gt;Twitter&lt;/a&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <h3>Step 26: Updating Your Links</h3>
+        <ol>
+            <li>Replace placeholder URLs with your actual profile links</li>
+            <li>Remove any social platforms you don't use (delete the entire <code>&lt;a&gt;...&lt;/a&gt;</code> line)</li>
+            <li>Make sure to keep <code>target="_blank"</code> so links open in new tabs</li>
+        </ol>
+
+        <div class="tip">
+            <strong>✨ Pro Tip:</strong> Only include professional social media! For a portfolio/resume site, stick to:
+            <ul style="margin-top: 10px;">
+                <li>LinkedIn (professional networking)</li>
+                <li>GitHub (if you're a developer)</li>
+                <li>Behance/Dribbble (if you're a designer)</li>
+                <li>Medium/Personal blog (if you write)</li>
+            </ul>
+            Skip personal platforms like Instagram or TikTok unless they're professionally relevant.
+        </div>
+
+        <hr style="margin: 40px 0; border: none; border-top: 1px solid #e1e1e1;">
+
+        <div class="success" style="padding: 30px;">
+            <h2 style="margin: 0 0 15px 0; padding: 0; border: none;">🎊 Amazing Work!</h2>
+            <p style="margin: 0;">You've learned advanced customization:</p>
+            <ul style="margin: 15px 0 0 20px;">
+                <li>✅ Adding and replacing images properly</li>
+                <li>✅ Uploading documents like resumes</li>
+                <li>✅ Customizing colors and fonts with CSS</li>
+                <li>✅ Editing navigation menus</li>
+                <li>✅ Adding social media links</li>
+            </ul>
+            <p style="margin-top: 15px;"><strong>Your website is really coming together!</strong></p>
+        </div>
+
+        <div class="note">
+            <strong>📝 What's Next?</strong> In <strong>Part 4: Troubleshooting</strong>, you'll learn how to fix common problems, undo mistakes, and maintain your website for the long term.
+        </div>
+
+        <div class="navigation">
+            <a href="editing.html" class="nav-button secondary">← Back to Part 2: Editing</a>
+            <a href="troubleshooting.html" class="nav-button">Continue to Part 4: Troubleshooting →</a>
+        </div>
+    </div>
+
+    <div class="meite-note" style="background-color: #13294b; color: white; padding: 25px 20px; text-align: center; font-size: 0.95em; border-top: 4px solid #4b9cd3; margin-top: 60px;">
+        <p style="color: white; margin: 0;">This tutorial was created for students in the <strong>Master of Arts in Educational Innovation, Technology, and Entrepreneurship (MEITE)</strong> program at UNC Chapel Hill School of Education.</p>
+    </div>
+</body>
+</html>

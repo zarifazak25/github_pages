@@ -1,0 +1,319 @@
+/* UNC Chapel Hill School of Education Brand Colors */
+:root {
+    --carolina-blue: #4b9cd3;
+    --athletics-navy: #13294b;
+    --link-blue: #007fae;
+    --dark-gray: #767676;
+    --light-gray: #e1e1e1;
+    --yellow: #fff200;
+    --white: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Acumin Pro", Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--athletics-navy);
+    background-color: var(--white);
+}
+
+/* Headers */
+h1, h2, h3 {
+    font-family: Georgia, "Le Monde Livre", serif;
+    color: var(--athletics-navy);
+}
+
+.header {
+    background: linear-gradient(135deg, var(--carolina-blue) 0%, var(--athletics-navy) 100%);
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+    border-bottom: 4px solid var(--carolina-blue);
+}
+
+.header h1 {
+    font-size: 2.5em;
+    margin-bottom: 0.3em;
+    font-weight: 700;
+    color: white;
+}
+
+.header p {
+    color: white;
+    opacity: 0.95;
+}
+
+.breadcrumb {
+    background-color: #f8f9fa;
+    padding: 15px 20px;
+    border-bottom: 2px solid var(--light-gray);
+}
+
+.breadcrumb a {
+    color: var(--link-blue);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+    color: var(--carolina-blue);
+}
+
+.breadcrumb span {
+    color: var(--dark-gray);
+    margin: 0 5px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+h2 {
+    font-size: 1.8em;
+    font-weight: 600;
+    margin-top: 2em;
+    margin-bottom: 1em;
+    padding-bottom: 0.3em;
+    border-bottom: 2px solid var(--carolina-blue);
+    color: var(--athletics-navy);
+}
+
+h3 {
+    font-size: 1.4em;
+    font-weight: 600;
+    margin-top: 1.5em;
+    margin-bottom: 0.8em;
+    color: var(--athletics-navy);
+}
+
+p {
+    margin-bottom: 1em;
+    font-size: 16px;
+    color: var(--dark-gray);
+}
+
+ol, ul {
+    margin-left: 2em;
+    margin-bottom: 1.5em;
+}
+
+li {
+    margin-bottom: 0.8em;
+    line-height: 1.8;
+    color: var(--dark-gray);
+}
+
+.step-header {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-left: 4px solid var(--carolina-blue);
+    margin: 30px 0 20px 0;
+    border-radius: 4px;
+}
+
+.step-header h2 {
+    margin: 0;
+    padding: 0;
+    border: none;
+    font-size: 1.6em;
+    color: var(--athletics-navy);
+}
+
+/* Callout boxes */
+.note {
+    background-color: #e8f4f8;
+    border-left: 4px solid var(--carolina-blue);
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 3px;
+}
+
+.important {
+    background-color: #fff5f5;
+    border-left: 4px solid #dc3545;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 3px;
+}
+
+.tip {
+    background-color: #f0f8ff;
+    border-left: 4px solid var(--link-blue);
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 3px;
+}
+
+.success {
+    background-color: #f0f8f5;
+    border-left: 4px solid #28a745;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 3px;
+}
+
+.warning {
+    background-color: #fffef0;
+    border-left: 4px solid var(--yellow);
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 3px;
+}
+
+.note strong, .important strong, .tip strong, .success strong, .warning strong {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--athletics-navy);
+}
+
+.image-placeholder {
+    background-color: var(--light-gray);
+    border: 2px dashed var(--dark-gray);
+    padding: 60px 40px;
+    text-align: center;
+    margin: 20px 0;
+    border-radius: 6px;
+    color: var(--dark-gray);
+    font-style: italic;
+}
+
+code {
+    background-color: #f8f9fa;
+    padding: 3px 6px;
+    border-radius: 3px;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    font-size: 0.9em;
+    color: var(--link-blue);
+}
+
+pre {
+    background-color: #f8f9fa;
+    padding: 16px;
+    border-radius: 6px;
+    overflow-x: auto;
+    margin: 15px 0;
+    border: 1px solid var(--light-gray);
+}
+
+pre code {
+    background-color: transparent;
+    padding: 0;
+    color: var(--athletics-navy);
+}
+
+.code-example {
+    background-color: var(--white);
+    border: 2px solid var(--carolina-blue);
+    border-radius: 6px;
+    margin: 20px 0;
+    overflow: hidden;
+}
+
+.code-example-header {
+    background-color: var(--carolina-blue);
+    color: white;
+    padding: 10px 15px;
+    font-weight: 600;
+}
+
+.code-example-content {
+    padding: 15px;
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 60px;
+    padding-top: 30px;
+    border-top: 2px solid var(--carolina-blue);
+}
+
+.nav-button {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: var(--carolina-blue);
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.nav-button:hover {
+    background-color: var(--link-blue);
+}
+
+.nav-button.secondary {
+    background-color: var(--dark-gray);
+}
+
+.nav-button.secondary:hover {
+    background-color: #5a6268;
+}
+
+a {
+    color: var(--link-blue);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: var(--carolina-blue);
+}
+
+strong {
+    font-weight: 600;
+    color: var(--athletics-navy);
+}
+
+/* Footer */
+.meite-note {
+    background-color: var(--athletics-navy);
+    color: white;
+    padding: 25px 20px;
+    text-align: center;
+    font-size: 0.95em;
+    border-top: 4px solid var(--carolina-blue);
+    margin-top: 60px;
+}
+
+.meite-note p {
+    color: white;
+    margin: 0;
+}
+
+.meite-note a {
+    color: var(--carolina-blue);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.meite-note a:hover {
+    color: var(--yellow);
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 2em;
+    }
+
+    .navigation {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-button {
+        width: 100%;
+        text-align: center;
+    }
+}
